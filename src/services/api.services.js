@@ -13,7 +13,7 @@ class apiService {
 
       config.headers.Authorization = `Bearer ${localStorage.getItem('token')}`;
       return config;
-    }); //aqui conseguimos colocar qualquer informação dentro do request ANTES de ele ser feito para a API
+    });
 
     this.api.interceptors.response.use(
       (config) => config,
@@ -23,7 +23,7 @@ class apiService {
           error.response.data.type === 'Auth'
         ) {
           localStorage.removeItem('token');
-          window.location.href = '/'; // forçando o user a voltar para o login
+          window.location.href = '/';
         }
         return error;
       }
