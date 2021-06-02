@@ -38,6 +38,13 @@ class apiService {
     const { data } = await this.api.post('/auth/login', userData);
     return data.message;
   };
+
+  getBusinessCategories = async () => {
+    const { data } = await axios.get(
+      `${process.env.REACT_APP_BACKEND_URL}/categories`
+    );
+    return data;
+  };
 }
 
 export default new apiService();
