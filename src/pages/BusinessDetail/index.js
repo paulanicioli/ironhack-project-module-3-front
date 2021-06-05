@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 
 import apiService from '../../services/api.services';
 
+import './styles.css';
 class BusinessDetail extends Component {
   constructor(props) {
     super(props);
@@ -18,9 +19,33 @@ class BusinessDetail extends Component {
   render() {
     return (
       <div>
-        <h1>You've reached the BusinessDetail page!</h1>
-        <h3>Name: {this.state.business ? this.state.business.name : ''}</h3>
-        <h3>Street: {this.state.business ? this.state.business.street : ''}</h3>
+        <img
+          className="business-detail-image"
+          src={this.state.business ? this.state.business.imageUrl : ''}
+          alt={this.state.business ? this.state.business.name : ''}
+        />
+        <h1 className="section-title">
+          {this.state.business ? this.state.business.name : ''}
+        </h1>
+        <small className="business-address">
+          {this.state.business ? this.state.business.street : ''}
+        </small>
+        <div className="business-menu">
+          <h1 className="section-title centered-title">Cardápio</h1>
+          <hr />
+          <div className="menu-section-container">
+            <h3>Entradas</h3>
+            <div className="menu-item">
+              <h5>Produto 1</h5>
+            </div>
+            <div className="menu-item">
+              <h5>Produto 2</h5>
+            </div>
+            <div className="menu-item">
+              <h5>Produto 3</h5>
+            </div>
+          </div>
+        </div>
       </div>
     );
   }

@@ -25,7 +25,11 @@ class BusinessList extends Component {
   render() {
     return (
       <div>
-        <h1 className="section-title">Businesses</h1>
+        <h1 className="section-title">
+          {this.state.businesses.length
+            ? this.state.businesses[0].businessCategory.name
+            : ''}
+        </h1>
         <p className="section-subtitle">
           Seus pedidos a um clique de distância
         </p>
@@ -36,6 +40,7 @@ class BusinessList extends Component {
                 name={element.name}
                 imageUrl={element.imageUrl}
                 street={element.street}
+                businessHours={element.businessHours}
                 businessId={element._id}
                 key={element._id}
               />

@@ -1,0 +1,20 @@
+.business-detail-image {
+  height: 20vh;
+  width: 100vw;
+  object-fit: cover;
+}
+
+.business-address {
+  display: flex;
+  justify-content: flex-end;
+  color: var(--gray-custom-color);
+  margin-right: 10px;
+}
+
+.business-menu {
+  margin: 15px 20px;
+}
+
+.centered-title {
+  text-align: center;
+}
