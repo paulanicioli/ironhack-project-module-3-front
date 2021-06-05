@@ -4,3 +4,10 @@
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   font-size: 16px;
 }
+
+body {
+  --red-custom-color: #ee6a59;
+  --blue-custom-color: #3a3f58;
+  --yellow-custom-color: #f9ac67;
+  --gray-custom-color: #ece6cd;
+}
