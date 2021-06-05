@@ -6,8 +6,8 @@
 }
 
 body {
-  --red-custom-color: #ee6a59;
-  --blue-custom-color: #3a3f58;
-  --yellow-custom-color: #f9ac67;
-  --gray-custom-color: #808080;
+  --custom-red: #ee6a59;
+  --custom-blue: #3a3f58;
+  --custom-yellow: #f9ac67;
+  --custom-gray: #808080;
 }

@@ -7,7 +7,7 @@
   text-align: center;
   font-weight: bold;
   font-size: 1rem;
-  color: var(--blue-custom-color);
+  color: var(--custom-blue);
 }
 
 .category-url {
@@ -20,5 +20,5 @@
   box-sizing: border-box;
   width: 40vw;
   border-radius: 10px;
-  box-shadow: 5px 5px 10px var(--gray-custom-color);
+  box-shadow: 5px 5px 10px var(--custom-gray);
 }

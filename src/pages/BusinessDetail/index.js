@@ -45,6 +45,18 @@ class BusinessDetail extends Component {
               <h5>Produto 3</h5>
             </div>
           </div>
+          <div className="menu-section-container">
+            <h3>Sobremesas</h3>
+            <div className="menu-item">
+              <h5>Produto 1</h5>
+            </div>
+            <div className="menu-item">
+              <h5>Produto 2</h5>
+            </div>
+            <div className="menu-item">
+              <h5>Produto 3</h5>
+            </div>
+          </div>
         </div>
       </div>
     );

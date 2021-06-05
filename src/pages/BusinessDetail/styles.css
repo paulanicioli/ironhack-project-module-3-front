@@ -7,7 +7,7 @@
 .business-address {
   display: flex;
   justify-content: flex-end;
-  color: var(--gray-custom-color);
+  color: var(--custom-gray);
   margin-right: 10px;
 }
 
@@ -17,4 +17,18 @@
 
 .centered-title {
   text-align: center;
+}
+
+.menu-section-container {
+  margin: 10px;
+}
+
+.menu-section-container h3 {
+  color: var(--custom-red);
+  font-size: 1.2rem;
+  margin: 5px;
+}
+
+.menu-item {
+  display: flex;
 }

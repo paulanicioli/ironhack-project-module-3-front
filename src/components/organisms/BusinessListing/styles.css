@@ -20,18 +20,18 @@
 
 .business-info h3 {
   font-size: 1rem;
-  color: var(--blue-custom-color);
+  color: var(--custom-blue);
   margin-bottom: 5px;
 }
 
 .business-info small {
   font-size: 0.8rem;
-  color: var(--gray-custom-color);
+  color: var(--custom-gray);
 }
 
 hr {
-  background-color: var(--gray-custom-color);
-  color: var(--gray-custom-color);
+  background-color: var(--custom-gray);
+  color: var(--custom-gray);
   border: 0 none;
   height: 1px;
 }
