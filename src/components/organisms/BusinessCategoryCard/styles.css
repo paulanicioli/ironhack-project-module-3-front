@@ -6,6 +6,12 @@
 .category-title {
   text-align: center;
   font-weight: bold;
+  font-size: 1rem;
+  color: gray;
+}
+
+.category-url {
+  text-decoration: none;
 }
 
 .category-container {

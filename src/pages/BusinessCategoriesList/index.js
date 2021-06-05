@@ -14,20 +14,24 @@ class BusinessCategoriesList extends Component {
 
   async componentDidMount() {
     const categoriesList = await this.apiService.getBusinessCategories();
-    console.log(categoriesList);
     this.setState({ categories: categoriesList });
   }
 
   render() {
     return (
       <div>
-        <h1>Categories List:</h1>
+        <h1 className="section-title">Escolha a categoria</h1>
+        <p className="section-subtitle">
+          Seus pedidos a um clique de distância
+        </p>
         <div className="category-list-container">
           {this.state.categories.map((element) => {
             return (
               <BusinessCategoryCard
                 name={element.name}
                 imageUrl={element.imageUrl}
+                categoryId={element._id}
+                key={element._id}
               />
             );
           })}
