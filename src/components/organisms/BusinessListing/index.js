@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Card from 'react-bootstrap/Card';
+import Container from 'react-bootstrap/Container';
 import { Link } from 'react-router-dom';
 
 import './styles.css';
@@ -11,20 +11,29 @@ class BusinessListing extends Component {
 
   render() {
     return (
-      <Link
-        to={`/businesses/${this.props.businessId}`}
-        className="category-url"
-      >
-        <Card className="category-container text-center">
-          <Card.Img
-            variant="top"
-            className="card-image"
-            src={this.props.imageUrl}
-            alt={this.props.name}
-          />
-          <Card.Title className="category-title">{this.props.name}</Card.Title>
-        </Card>
-      </Link>
+      <div>
+        <Link
+          to={`/businesses/${this.props.businessId}`}
+          className="category-url"
+        >
+          <Container className="business-row">
+            <img
+              variant="top"
+              className="business-image"
+              src={this.props.imageUrl}
+              alt={this.props.name}
+            />
+            <div className="business-info">
+              <h3>{this.props.name}</h3>
+              <small>{this.props.street}</small>
+              <small>
+                Horário de funcionamento: {this.props.businessHours}
+              </small>
+            </div>
+          </Container>
+        </Link>
+        <hr />
+      </div>
     );
   }
 }
