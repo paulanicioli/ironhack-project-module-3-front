@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import BusinessCategoryCard from '../../components/organisms/BusinessCategoryCard';
 
+import './styles.css';
+
 import apiService from '../../services/api.services';
 
 class BusinessCategoriesList extends Component {
@@ -20,14 +22,16 @@ class BusinessCategoriesList extends Component {
     return (
       <div>
         <h1>Categories List:</h1>
-        {this.state.categories.map((element) => {
-          return (
-            <BusinessCategoryCard
-              name={element.name}
-              imageUrl={element.imageUrl}
-            />
-          );
-        })}
+        <div className="category-list-container">
+          {this.state.categories.map((element) => {
+            return (
+              <BusinessCategoryCard
+                name={element.name}
+                imageUrl={element.imageUrl}
+              />
+            );
+          })}
+        </div>
       </div>
     );
   }

@@ -1,4 +1,7 @@
 import React, { Component } from 'react';
+import Card from 'react-bootstrap/Card';
+
+import './styles.css';
 
 class BusinessCategoryCard extends Component {
   constructor(props) {
@@ -7,10 +10,15 @@ class BusinessCategoryCard extends Component {
 
   render() {
     return (
-      <div>
-        <img src={this.props.imageUrl} alt={this.props.name} />
-        <h3>{this.props.name}</h3>
-      </div>
+      <Card className="category-container text-center">
+        <Card.Img
+          variant="top"
+          className="card-image"
+          src={this.props.imageUrl}
+          alt={this.props.name}
+        />
+        <Card.Title className="category-title">{this.props.name}</Card.Title>
+      </Card>
     );
   }
 }

@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import DatePicker from 'react-datepicker';
 
 import { Switch, Route } from 'react-router-dom';
 
@@ -18,12 +17,6 @@ const App = () => {
   };
   return (
     <div>
-      <DatePicker
-        selected={startDate}
-        onChange={handleChange}
-        name="startDate"
-        dateFormat="MM/dd/yyyy"
-      />
       <Switch>
         <Route exact path="/" component={Home} />
         <Route exact path="/login" component={Login} />

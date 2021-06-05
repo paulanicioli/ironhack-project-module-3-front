@@ -1,0 +1,7 @@
+.category-list-container {
+  margin: 3vh 3vw;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+}
