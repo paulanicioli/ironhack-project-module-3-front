@@ -7,15 +7,12 @@ import Login from './pages/Login';
 import Signup from './pages/Signup';
 import BusinessCategoriesList from './pages/BusinessCategoriesList';
 import BusinessList from './pages/BusinessList';
+import BusinessDetail from './pages/BusinessDetail';
 
 import './App.css';
 
 const App = () => {
-  const [startDate, setStartDate] = useState(new Date());
 
-  const handleChange = (date) => {
-    setStartDate(date);
-  };
   return (
     <div>
       <Switch>
@@ -24,6 +21,11 @@ const App = () => {
         <Route exact path="/signup" component={Signup} />
         <Route exact path="/categories" component={BusinessCategoriesList} />
         <Route exact path="/categories/:categoryId" component={BusinessList} />
+        <Route
+          exact
+          path="/businesses/:businessId"
+          component={BusinessDetail}
+        />
       </Switch>
     </div>
   );

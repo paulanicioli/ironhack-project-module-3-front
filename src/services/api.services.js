@@ -52,6 +52,13 @@ class apiService {
     );
     return data;
   };
+
+  getBusinessDetail = async (businessId) => {
+    const { data } = await axios.get(
+      `${process.env.REACT_APP_BACKEND_URL}/businesses/${businessId}`
+    );
+    return data;
+  };
 }
 
 export default new apiService();
