@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 
+import ProductCategoryContainer from '../../components/organisms/ProductCategoryContainer';
 import apiService from '../../services/api.services';
 
 import './styles.css';
@@ -33,30 +34,10 @@ class BusinessDetail extends Component {
         <div className="business-menu">
           <h1 className="section-title centered-title">Cardápio</h1>
           <hr />
-          <div className="menu-section-container">
-            <h3>Entradas</h3>
-            <div className="menu-item">
-              <h5>Produto 1</h5>
-            </div>
-            <div className="menu-item">
-              <h5>Produto 2</h5>
-            </div>
-            <div className="menu-item">
-              <h5>Produto 3</h5>
-            </div>
-          </div>
-          <div className="menu-section-container">
-            <h3>Sobremesas</h3>
-            <div className="menu-item">
-              <h5>Produto 1</h5>
-            </div>
-            <div className="menu-item">
-              <h5>Produto 2</h5>
-            </div>
-            <div className="menu-item">
-              <h5>Produto 3</h5>
-            </div>
-          </div>
+          <ProductCategoryContainer
+            products={this.state.products}
+          ></ProductCategoryContainer>
+          <hr />
         </div>
       </div>
     );
