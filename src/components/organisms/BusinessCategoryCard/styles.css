@@ -1,0 +1,24 @@
+.card-image {
+  width: 35vw;
+  object-fit: cover;
+}
+
+.category-title {
+  text-align: center;
+  font-weight: bold;
+  font-size: 1rem;
+  color: var(--custom-blue);
+}
+
+.category-url {
+  text-decoration: none;
+}
+
+.category-container {
+  padding: 10px;
+  margin: 2vh 2vw;
+  box-sizing: border-box;
+  width: 40vw;
+  border-radius: 10px;
+  box-shadow: 5px 5px 10px var(--custom-gray);
+}

@@ -1,0 +1,13 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 16px;
+}
+
+body {
+  --custom-red: #ee6a59;
+  --custom-blue: #3a3f58;
+  --custom-yellow: #f9ac67;
+  --custom-gray: #808080;
+}

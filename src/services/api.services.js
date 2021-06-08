@@ -45,6 +45,20 @@ class apiService {
     );
     return data;
   };
+
+  getBusinessFromCategory = async (categoryId) => {
+    const { data } = await axios.get(
+      `${process.env.REACT_APP_BACKEND_URL}/categories/${categoryId}`
+    );
+    return data;
+  };
+
+  getBusinessDetail = async (businessId) => {
+    const { data } = await axios.get(
+      `${process.env.REACT_APP_BACKEND_URL}/businesses/${businessId}`
+    );
+    return data;
+  };
 }
 
 export default new apiService();

@@ -1,0 +1,18 @@
+.business-list-container {
+  margin: 1vh 4vw;
+  display: flex;
+  flex-direction: column;
+}
+
+.section-title {
+  font-weight: bold;
+  font-size: 1.5rem;
+  color: var(--custom-blue);
+  margin: 5px 15px;
+}
+
+.section-subtitle {
+  font-style: italic;
+  color: var(--custom-yellow);
+  margin: 0 15px;
+}
