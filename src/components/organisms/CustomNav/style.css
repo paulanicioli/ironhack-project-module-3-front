@@ -1,0 +1,9 @@
+nav,
+.dropdown-menu.show {
+    background-color: var(--custom-blue);
+}
+
+.me-auto {
+    margin-left: auto;
+    color: red;
+}
