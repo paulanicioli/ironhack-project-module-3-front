@@ -9,6 +9,7 @@ import BusinessCategoriesList from './pages/BusinessCategoriesList';
 import BusinessList from './pages/BusinessList';
 import BusinessDetail from './pages/BusinessDetail';
 
+import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 
 const App = () => {

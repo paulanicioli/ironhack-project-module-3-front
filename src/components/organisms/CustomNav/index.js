@@ -1,8 +1,11 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import { Link } from 'react-router-dom'
 
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
 import NavDropdown from 'react-bootstrap/NavDropdown';
+
+import CustomButton from '../../atoms/CustomButton';
 
 import './style.css'
 
@@ -33,7 +36,9 @@ class CustomNav extends Component {
                 </NavDropdown> 
               : 
                 
-                <button>Login</button>  }
+                <CustomButton>
+                  <Link to="/login">Login</Link>
+                </CustomButton>  }
             </Nav>
           </Navbar.Collapse>
       </Navbar>
