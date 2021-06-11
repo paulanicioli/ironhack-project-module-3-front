@@ -3,7 +3,7 @@ import axios from 'axios';
 class apiService {
   constructor() {
     this.api = axios.create({
-      baseUrl: process.env.REACT_APP_BACKEND_URL,
+      baseURL: process.env.REACT_APP_BACKEND_URL,
     });
 
     this.api.interceptors.request.use((config) => {
@@ -34,10 +34,9 @@ class apiService {
     await this.api.post('/auth/signup', userData);
   };
 
-  loginUser = async (userData) => {
-    const response = await this.api.post('/auth/login', userData);
-    console.log(response);
-    return 'ok';
+  loginUser = async (userData) => {    
+      const response = await this.api.post('/auth/login', userData);
+      return response.data.message;
   };
 
   getBusinessCategories = async () => {
