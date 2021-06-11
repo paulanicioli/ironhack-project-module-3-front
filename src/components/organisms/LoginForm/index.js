@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Formik } from 'formik';
-import * as Yup from 'yup'
+import * as Yup from 'yup';
 import Form from 'react-bootstrap/Form';
 import LabeledInput from '../../molecules/LabeledInput';
 import CustomButton from '../../atoms/CustomButton';
@@ -22,27 +22,25 @@ class LoginForm extends Component {
     });
   }
 
-  
   render() {
     return (
       <div>
-        <Formik 
-        initialValues={ { email: '', password: '' } }
-        onSubmit={info => { this.props.loginUser(info) }
-    }
-        validationSchema={this.formSchema}
-         >
-          {
-            ( {
-              handleSubmit,
-              handleChange,
-              handleBlur,
-              values,
-              touched,
-              errors,
-            } ) => (
-              
-              <Form onSubmit={handleSubmit}>
+        <Formik
+          initialValues={{ email: '', password: '' }}
+          onSubmit={(info) => {
+            handleLogin(info);
+          }}
+          validationSchema={this.formSchema}
+        >
+          {({
+            handleSubmit,
+            handleChange,
+            handleBlur,
+            values,
+            touched,
+            errors,
+          }) => (
+            <Form onSubmit={handleSubmit}>
               <LabeledInput
                 controlId="LoginFormEmail"
                 label="User Email"
@@ -65,13 +63,9 @@ class LoginForm extends Component {
                 error={errors.password}
                 touched={touched.password}
               />
-              <CustomButton variant="primary" type="submit" size="lg">
-                Entrar
-              </CustomButton>
+              <CustomButton>Entrar</CustomButton>
             </Form>
-            
-            )
-          }
+          )}
         </Formik>
       </div>
     );

@@ -9,7 +9,9 @@ class CustomButton extends Component {
   render() {
     return (
       <div>
-        <Button>{this.props.children}</Button>
+        <Button type="submit" variant="primary" size="lg">
+          {this.props.children}
+        </Button>
       </div>
     );
   }
