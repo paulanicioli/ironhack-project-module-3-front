@@ -35,8 +35,9 @@ class apiService {
   };
 
   loginUser = async (userData) => {
-    const { data } = await this.api.post('/auth/login', userData);
-    return data.message;
+    const response = await this.api.post('/auth/login', userData);
+    console.log(response);
+    return 'ok';
   };
 
   getBusinessCategories = async () => {

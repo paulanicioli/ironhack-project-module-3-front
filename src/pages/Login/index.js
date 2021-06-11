@@ -10,7 +10,7 @@ class Login extends Component {
     this.apiService = apiService;
   }
 
-  async handleLogin(values) {
+  handleLogin = async (values) => {
     try {
       const token = await this.apiService.loginUser(values);
       localStorage.setItem('token', token);
@@ -18,13 +18,13 @@ class Login extends Component {
     } catch (error) {
       console.log(error);
     }
-  }
+  };
 
   render() {
     return (
       <GeneralTemplate>
         <h1>Login page</h1>
-        <LoginForm handleLogin={handleLogin} />
+        <LoginForm handleLogin={this.handleLogin} />
       </GeneralTemplate>
     );
   }

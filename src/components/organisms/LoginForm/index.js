@@ -6,8 +6,8 @@ import LabeledInput from '../../molecules/LabeledInput';
 import CustomButton from '../../atoms/CustomButton';
 
 class LoginForm extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {};
     this.formSchema = Yup.object().shape({
       email: Yup.string()
@@ -28,7 +28,7 @@ class LoginForm extends Component {
         <Formik
           initialValues={{ email: '', password: '' }}
           onSubmit={(info) => {
-            handleLogin(info);
+            this.props.handleLogin(info);
           }}
           validationSchema={this.formSchema}
         >
