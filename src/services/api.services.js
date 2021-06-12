@@ -23,6 +23,7 @@ class apiService {
           error.response.data.type === 'Auth'
         ) {
           localStorage.removeItem('token');
+          localStorage.removeItem('role');
           window.location.href = '/';
         }
         return error;
