@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import Button from 'react-bootstrap/Button';
 
 import './styles.css';
 class SubmitButton extends Component {
@@ -10,9 +9,13 @@ class SubmitButton extends Component {
   render() {
     return (
       <div>
-        <Button type="submit" className="set-custom-blue">
+        <button
+          type="submit"
+          className="custom-button"
+          onClick={this.props.onClick}
+        >
           {this.props.children}
-        </Button>
+        </button>
       </div>
     );
   }

@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 
 import Modal from 'react-bootstrap/Modal';
-import Button from 'react-bootstrap/Button';
 
 import ProductCategoryContainer from '../../components/organisms/ProductCategoryContainer';
+import CustomButton from '../../components/atoms/CustomButton';
 import apiService from '../../services/api.services';
 
 import './styles.css';
@@ -52,13 +52,13 @@ class BusinessDetail extends Component {
     });
   }
 
-  handleShowModal = (e) => {
+  handleShowModal = () => {
     const previousState = { ...this.state };
     previousState.show = true;
     this.setState(previousState);
   };
 
-  handleCloseModal = (e) => {
+  handleCloseModal = () => {
     const previousState = { ...this.state };
     previousState.show = false;
     this.setState(previousState);
@@ -78,9 +78,11 @@ class BusinessDetail extends Component {
         <small className="business-address">
           {this.state.business ? this.state.business.street : ''}
         </small>
-        <Button className="center-horizontally" onClick={this.handleShowModal}>
-          Ver mais informações
-        </Button>
+        <div className="center-horizontally">
+          <CustomButton onClick={this.handleShowModal}>
+            Ver mais informações
+          </CustomButton>
+        </div>
         <Modal show={this.state.show} onHide={this.handleCloseModal} centered>
           <Modal.Header>
             <Modal.Title>
@@ -92,7 +94,7 @@ class BusinessDetail extends Component {
             {this.state.business ? this.state.business.name : ''}{' '}
           </Modal.Body>
           <Modal.Footer>
-            <Button onClick={this.handleCloseModal}>Fechar</Button>
+            <CustomButton onClick={this.handleCloseModal}>Fechar</CustomButton>
           </Modal.Footer>
         </Modal>
         <div className="business-menu">

@@ -1,19 +1,31 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
+import Modal from 'react-bootstrap/Modal';
+import Button from 'react-bootstrap/Button';
+
 import AddToCartButton from '../../atoms/AddToCartButton';
+import CustomButton from '../../atoms/CustomButton';
 
 import './styles.css';
 
 class MenuItem extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = { show: false };
   }
 
   formattedPrice() {
     return 'R$' + this.props.product.price.toFixed(2).replace('.', ',');
   }
+
+  handleShowModal = () => {
+    this.setState({ show: true });
+  };
+
+  handleCloseModal = () => {
+    this.setState({ show: false });
+  };
 
   render() {
     return (
@@ -32,9 +44,21 @@ class MenuItem extends Component {
           </div>
           <div>
             <small>{this.props.product.description}</small>
-            <AddToCartButton />
+            <AddToCartButton onClick={this.handleShowModal}>+</AddToCartButton>
           </div>
         </div>
+        <Modal show={this.state.show} onHide={this.handleCloseModal} centered>
+          <Modal.Header>
+            <Modal.Title>{this.props.product.name}</Modal.Title>
+          </Modal.Header>
+          <Modal.Body>
+            Olá! Em breve você poderá contar com mais informações sobre
+            {this.props.product.name}
+          </Modal.Body>
+          <Modal.Footer>
+            <CustomButton onClick={this.handleCloseModal}>Fechar</CustomButton>
+          </Modal.Footer>
+        </Modal>
       </div>
     );
   }

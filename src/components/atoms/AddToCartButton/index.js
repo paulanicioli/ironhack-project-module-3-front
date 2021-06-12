@@ -9,8 +9,8 @@ class AddToCartButton extends Component {
 
   render() {
     return (
-      <button className="add-product-button" type="submit">
-        +
+      <button className="add-product-button" onClick={this.props.onClick}>
+        {this.props.children}
       </button>
     );
   }

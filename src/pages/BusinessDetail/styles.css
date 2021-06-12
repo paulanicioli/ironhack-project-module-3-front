@@ -34,5 +34,7 @@
 }
 
 .center-horizontally {
-  margin: 0 auto;
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 10px;
 }
