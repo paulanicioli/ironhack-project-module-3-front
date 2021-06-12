@@ -35,9 +35,15 @@ class apiService {
     await this.api.post('/auth/signup', userData);
   };
 
-  loginUser = async (userData) => {    
-      const response = await this.api.post('/auth/login', userData);
-      return response.data.message;
+  loginUser = async (userData) => {
+    const response = await this.api.post('/auth/login', userData);
+    return response.data.message;
+  };
+
+  logoutUser = async () => {
+    localStorage.removeItem('token');
+    localStorage.removeItem('role');
+    window.location.href = '/';
   };
 
   getBusinessCategories = async () => {

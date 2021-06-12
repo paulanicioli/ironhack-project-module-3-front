@@ -13,13 +13,14 @@ class Login extends Component {
   handleLogin = async (values) => {
     try {
       const { token, role } = await this.apiService.loginUser(values);
+      if (token) {
+        localStorage.setItem('token', token);
+        localStorage.setItem('role', role);
 
-      localStorage.setItem('token', token);
-      localStorage.setItem('role', role);
+        this.props.updateUserState(role);
 
-      this.props.updateUserState(role);
-
-      this.props.history.push('/categories');
+        this.props.history.push('/categories');
+      }
     } catch (error) {
       console.log(error);
     }
