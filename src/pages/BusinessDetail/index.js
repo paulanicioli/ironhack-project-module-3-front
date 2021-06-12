@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 
+import Modal from 'react-bootstrap/Modal';
+import Button from 'react-bootstrap/Button';
+
 import ProductCategoryContainer from '../../components/organisms/ProductCategoryContainer';
 import apiService from '../../services/api.services';
 
@@ -7,7 +10,7 @@ import './styles.css';
 class BusinessDetail extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = { show: false };
     this.apiService = apiService;
   }
 
@@ -16,7 +19,7 @@ class BusinessDetail extends Component {
     const businessInfo = await this.apiService.getBusinessDetail(businessId);
     const productCategories = this.aggregateByCategories(businessInfo.products);
     businessInfo.productCategories = productCategories;
-    this.setState(businessInfo);
+    this.setState({ ...businessInfo, show: this.state.show });
   }
 
   aggregateByCategories(products) {
@@ -49,6 +52,18 @@ class BusinessDetail extends Component {
     });
   }
 
+  handleShowModal = (e) => {
+    const previousState = { ...this.state };
+    previousState.show = true;
+    this.setState(previousState);
+  };
+
+  handleCloseModal = (e) => {
+    const previousState = { ...this.state };
+    previousState.show = false;
+    this.setState(previousState);
+  };
+
   render() {
     return (
       <div>
@@ -63,6 +78,23 @@ class BusinessDetail extends Component {
         <small className="business-address">
           {this.state.business ? this.state.business.street : ''}
         </small>
+        <Button className="center-horizontally" onClick={this.handleShowModal}>
+          Ver mais informações
+        </Button>
+        <Modal show={this.state.show} onHide={this.handleCloseModal} centered>
+          <Modal.Header>
+            <Modal.Title>
+              {this.state.business ? this.state.business.name : ''}
+            </Modal.Title>
+          </Modal.Header>
+          <Modal.Body>
+            Olá! Em breve você poderá contar com mais informações sobre{' '}
+            {this.state.business ? this.state.business.name : ''}{' '}
+          </Modal.Body>
+          <Modal.Footer>
+            <Button onClick={this.handleCloseModal}>Fechar</Button>
+          </Modal.Footer>
+        </Modal>
         <div className="business-menu">
           <h1 className="section-title centered-title">Cardápio</h1>
           <hr />

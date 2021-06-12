@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import Button from 'react-bootstrap/Button';
 
-class CustomButton extends Component {
+import './styles.css';
+class SubmitButton extends Component {
   constructor(props) {
     super(props);
   }
@@ -9,7 +10,7 @@ class CustomButton extends Component {
   render() {
     return (
       <div>
-        <Button type="submit" variant="primary" size="lg">
+        <Button type="submit" className="set-custom-blue">
           {this.props.children}
         </Button>
       </div>
@@ -17,4 +18,4 @@ class CustomButton extends Component {
   }
 }
 
-export default CustomButton;
+export default SubmitButton;

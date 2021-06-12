@@ -1,0 +1,4 @@
+.set-custom-blue {
+  background-color: var(--custom-blue);
+  border-color: var(--custom-blue);
+}
