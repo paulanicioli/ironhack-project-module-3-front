@@ -13,6 +13,7 @@ class Login extends Component {
   handleLogin = async (values) => {
     try {
       const { token, role } = await this.apiService.loginUser(values);
+      console.log('login called!');
       if (token) {
         localStorage.setItem('token', token);
         localStorage.setItem('role', role);

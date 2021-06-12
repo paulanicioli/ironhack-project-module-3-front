@@ -7,7 +7,6 @@ class ProductCategoryContainer extends Component {
   }
 
   render() {
-    console.log(this.props.products);
     return (
       <div>
         {this.props.products
