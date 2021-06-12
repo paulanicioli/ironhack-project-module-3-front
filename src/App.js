@@ -97,8 +97,10 @@ class App extends React.Component {
             render={(props) => (
               <UserProtectedRoute
                 {...props}
-                isUserLogged={this.state.user.isUserLogged}
-                role={this.state.user.role}
+                isUserLogged={true}
+                role="user"
+                // isUserLogged={this.state.user.isUserLogged}
+                // role={this.state.user.role}
                 Component={BusinessDetail}
               />
             )}

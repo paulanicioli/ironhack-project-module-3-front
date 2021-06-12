@@ -32,3 +32,9 @@
 .menu-item {
   display: flex;
 }
+
+.center-horizontally {
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 10px;
+}

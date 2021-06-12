@@ -1,0 +1,38 @@
+.product-small-image {
+  height: 10vh;
+  width: 10vh;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-right: 15px;
+}
+
+.product-list-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin: 5px 0;
+}
+
+.product-list-info {
+  width: 100%;
+}
+
+.product-list-info h5 {
+  font-weight: bold;
+  color: var(--custom-red);
+  margin: 0;
+}
+
+.product-list-info h6,
+small {
+  font-style: italic;
+  color: var(--custom-gray);
+  margin: 0;
+}
+
+.product-list-info > div {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
