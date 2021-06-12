@@ -9,14 +9,15 @@ class UserProtectedRoute extends React.Component {
   }
 
   renderContent() {
-    console.log(this.props);
     const { isUserLogged, role, Component, ...rest } = this.props;
 
     if (!isUserLogged) {
+      console.log('user is not logged')
       return <Redirect to="/login" />;
     }
 
     if (role === 'user') {
+      console.log('user is user')
       return <Component {...rest} />;
     }
 
