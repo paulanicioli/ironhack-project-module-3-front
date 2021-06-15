@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
-import Navbar from '../../organisms/CustomNav/';
+import CustomNav from '../../organisms/CustomNav/';
 
 class GeneralTemplate extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
   }
 
   render() {
     return <div>
-      <Navbar />
+      <CustomNav updateUserState={this.props.updateUserState} user={this.props.user}/>
       {this.props.children}
     </div>;
   }

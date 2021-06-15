@@ -26,9 +26,11 @@ class App extends React.Component {
 
   checkLocalStorage = () => {
     const role = localStorage.getItem('role');
+
     if (role) {
       return { isUserLogged: true, role: role };
     }
+    
     return { isUserLogged: false, role: '' };
   };
 
@@ -41,16 +43,27 @@ class App extends React.Component {
     });
   };
 
+  componentDidMount = () => {
+    console.log('mounting app')
+  }
+
+  componentWillUnmount = () => {
+    console.log('unmounting')
+  }
   render() {
     return (
       <div>
         <Switch>
-          <Route exact path="/" component={Home} />
+          <Route 
+            exact 
+            path="/" 
+            render={() => <Home updateUserState={this.updateUserState} user={this.state.user}/>}
+          />
           <Route
             exact
             path="/login"
             render={(props) => (
-              <Login {...props} updateUserState={this.updateUserState} />
+              <Login {...props} updateUserState={this.updateUserState} user={this.state.user}/>
             )}
           />
           <Route exact path="/signup" component={Signup} />

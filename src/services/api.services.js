@@ -24,9 +24,11 @@ class apiService {
         ) {
           localStorage.removeItem('token');
           localStorage.removeItem('role');
+          //Ou mostramos uma página de 'usuário não autorizado?'
           window.location.href = '/';
         }
-        return error;
+
+        return Promise.reject(error);
       }
     );
   }
@@ -36,14 +38,18 @@ class apiService {
   };
 
   loginUser = async (userData) => {
-    const response = await this.api.post('/auth/login', userData);
-    return response.data.message;
+      const { data } = await this.api.post('/auth/login', userData);
+
+      return data.message;
   };
 
   logoutUser = async () => {
+    console.log(localStorage.getItem('role'))
     localStorage.removeItem('token');
     localStorage.removeItem('role');
-    window.location.href = '/';
+
+    console.log(localStorage.getItem('role'))
+    // window.location.href = '/';
   };
 
   getBusinessCategories = async () => {
