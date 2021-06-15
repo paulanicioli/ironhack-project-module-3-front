@@ -29,22 +29,32 @@ class MenuItem extends Component {
 
   render() {
     return (
-      <div className="product-list-container">
-        <Link to={`/products/${this.props.product._id}`}>
-          <img
-            className="product-small-image"
-            src={this.props.product.imageUrl}
-            alt={this.props.product.name}
-          />
-        </Link>
-        <div className="product-list-info">
-          <div>
-            <h5>{this.props.product.name}</h5>
-            <h6>{this.formattedPrice()}</h6>
-          </div>
-          <div>
-            <small>{this.props.product.description}</small>
-            <AddToCartButton onClick={this.handleShowModal}>+</AddToCartButton>
+      <>
+        <div className="product-list-container">
+          <Link to={`/products/${this.props.product._id}`}>
+            <img
+              className="product-small-image"
+              src={this.props.product.imageUrl}
+              alt={this.props.product.name}
+            />
+          </Link>
+
+          <div className="product-list-info">
+            <div>
+              <Link
+                className="product-url"
+                to={`/products/${this.props.product._id}`}
+              >
+                <h5>{this.props.product.name}</h5>
+              </Link>
+              <h6 className="price-container">{this.formattedPrice()}</h6>
+            </div>
+            <div>
+              <small>{this.props.product.description}</small>
+              <AddToCartButton onClick={this.handleShowModal}>
+                +
+              </AddToCartButton>
+            </div>
           </div>
         </div>
         <Modal show={this.state.show} onHide={this.handleCloseModal} centered>
@@ -59,7 +69,7 @@ class MenuItem extends Component {
             <CustomButton onClick={this.handleCloseModal}>Fechar</CustomButton>
           </Modal.Footer>
         </Modal>
-      </div>
+      </>
     );
   }
 }

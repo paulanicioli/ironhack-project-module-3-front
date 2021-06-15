@@ -17,6 +17,10 @@
   width: 100%;
 }
 
+.product-url {
+  text-decoration: none;
+}
+
 .product-list-info h5 {
   font-weight: bold;
   color: var(--custom-red);
