@@ -11,6 +11,7 @@ import BusinessDetail from './pages/BusinessDetail';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
+import './App.scss';
 
 const App = () => {
 

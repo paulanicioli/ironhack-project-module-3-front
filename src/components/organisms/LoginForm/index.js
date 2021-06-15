@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
 import { Formik } from 'formik';
-import * as Yup from 'yup'
+import * as Yup from 'yup';
+import "./style.scss";
 import Form from 'react-bootstrap/Form';
+import imageL from './image/listo.png';
+
 import LabeledInput from '../../molecules/LabeledInput';
 import CustomButton from '../../atoms/CustomButton';
 
@@ -19,7 +22,9 @@ class LoginForm extends Component {
         .min(6, 'Mínimo de 6 caracteres')
         .max(100, 'Máximo de 100 caracteres')
         .required('Campo obrigatório'),
+
     });
+    
   }
 
   
@@ -43,31 +48,52 @@ class LoginForm extends Component {
             } ) => (
               
               <Form onSubmit={handleSubmit}>
-              <LabeledInput
-                controlId="LoginFormEmail"
-                label="User Email"
-                type="text"
-                name="email"
-                value={values.email}
-                handleChange={handleChange}
-                handleBlur={handleBlur}
-                error={errors.email}
-                touched={touched.email}
-              />
-              <LabeledInput
-                controlId="LoginFormPassword"
-                label="User Password"
-                type="password"
-                name="password"
-                value={values.password}
-                handleChange={handleChange}
-                handleBlur={handleBlur}
-                error={errors.password}
-                touched={touched.password}
-              />
-              <CustomButton variant="primary" type="submit" size="lg">
-                Entrar
-              </CustomButton>
+              
+              <div className="base-container" ref={this.props.containerRef}>
+                <div className="content">
+                  
+                  <div className="image">
+                    <img src={imageL} alt="listo_logo"/>
+                  </div>
+                  <div className="form">
+                    <div className="form-group">
+                    <LabeledInput 
+                      type="username" 
+                      name="username" 
+                      label="E-mail de acesso"     
+                      placeholder="Digite E-mail de acesso"
+                      value={values.email}
+                      handleChange={handleChange}
+                      handleBlur={handleBlur}
+                      error={errors.email}
+                      touched={touched.email}
+                    />                    
+                  </div>
+
+                  <div className="form-group">
+                    <LabeledInput 
+                      type="password" 
+                      name="password" 
+                      label="Senha" 
+                      placeholder="Digite senha de acesso"
+                      value={values.password}
+                      handleChange={handleChange}
+                      handleBlur={handleBlur}
+                      error={errors.password}
+                      touched={touched.password}
+                    />
+                  </div>
+
+                </div>
+              </div>
+
+              <div className="footer">
+                <button type="button" className="btn">
+                  Login
+                </button>
+              </div>
+            </div>
+
             </Form>
             
             )
@@ -77,5 +103,9 @@ class LoginForm extends Component {
     );
   }
 }
+
+
+
+
 
 export default LoginForm;
