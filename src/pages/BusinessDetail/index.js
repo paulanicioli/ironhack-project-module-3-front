@@ -40,12 +40,20 @@ class BusinessDetail extends Component {
       });
   }
 
+  addToCart = (partialOrder) => {
+    console.log('Product has been added to cart!');
+    console.log('order: ', partialOrder);
+  };
+
   renderProductCategories() {
     return this.state.productCategories.map((element) => {
       return (
         <div key={element.name}>
           <h1 className="section-title">{element.name}</h1>
-          <ProductCategoryContainer products={element.products} />
+          <ProductCategoryContainer
+            products={element.products}
+            addToCart={this.addToCart}
+          />
           <hr />
         </div>
       );

@@ -1,11 +1,25 @@
 import React, { Component } from 'react';
 
+import QuantityInput from '../../molecules/QuantityInput';
+import CommentInput from '../../molecules/CommentInput';
+
 class ProductOrderForm extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
   }
 
-  render() {}
+  getQuantity = (values) => {
+    this.props.getQuantity(values);
+  };
+
+  render() {
+    return (
+      <>
+        <QuantityInput getQuantity={this.getQuantity} />
+        <CommentInput />
+      </>
+    );
+  }
 }
 
 export default ProductOrderForm;

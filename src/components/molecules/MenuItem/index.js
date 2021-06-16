@@ -6,13 +6,16 @@ import Button from 'react-bootstrap/Button';
 
 import AddToCartButton from '../../atoms/AddToCartButton';
 import CustomButton from '../../atoms/CustomButton';
+import ShadedButton from '../../atoms/ShadedButton';
+
+import ProductOrderForm from '../../organisms/ProductOrderForm';
 
 import './styles.css';
 
 class MenuItem extends Component {
   constructor(props) {
     super(props);
-    this.state = { show: false };
+    this.state = { show: false, quantity: 0 };
   }
 
   formattedPrice() {
@@ -20,11 +23,23 @@ class MenuItem extends Component {
   }
 
   handleShowModal = () => {
-    this.setState({ show: true });
+    this.setState({ show: true, quantity: this.state.quantity });
   };
 
   handleCloseModal = () => {
-    this.setState({ show: false });
+    this.setState({ show: false, quantity: 0 });
+  };
+
+  handleAddToCart = () => {
+    this.props.addToCart({
+      product: this.props.product._id,
+      quantity: this.state.quantity,
+    });
+    this.handleCloseModal();
+  };
+
+  quantityAdded = (qtd) => {
+    this.setState({ show: this.state.show, quantity: qtd });
   };
 
   render() {
@@ -59,14 +74,23 @@ class MenuItem extends Component {
         </div>
         <Modal show={this.state.show} onHide={this.handleCloseModal} centered>
           <Modal.Header>
-            <Modal.Title>{this.props.product.name}</Modal.Title>
+            <Modal.Title>
+              <img
+                className="modal-header-img"
+                src={this.props.product.imageUrl}
+                alt={this.props.product.name}
+              />
+              {this.props.product.name}
+            </Modal.Title>
           </Modal.Header>
           <Modal.Body>
-            Olá! Em breve você poderá contar com mais informações sobre
-            {this.props.product.name}
+            <ProductOrderForm getQuantity={this.quantityAdded} />
           </Modal.Body>
           <Modal.Footer>
-            <CustomButton onClick={this.handleCloseModal}>Fechar</CustomButton>
+            <ShadedButton onClick={this.handleCloseModal}>Fechar</ShadedButton>
+            <CustomButton onClick={this.handleAddToCart}>
+              Adicionar ao carrinho
+            </CustomButton>
           </Modal.Footer>
         </Modal>
       </>

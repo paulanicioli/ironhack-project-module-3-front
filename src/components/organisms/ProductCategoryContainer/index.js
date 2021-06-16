@@ -11,7 +11,13 @@ class ProductCategoryContainer extends Component {
       <div>
         {this.props.products
           ? this.props.products.map((element) => {
-              return <MenuItem key={element._id} product={element} />;
+              return (
+                <MenuItem
+                  key={element._id}
+                  product={element}
+                  addToCart={this.props.addToCart}
+                />
+              );
             })
           : ''}
       </div>
