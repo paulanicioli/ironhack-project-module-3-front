@@ -15,7 +15,7 @@ import './styles.css';
 class MenuItem extends Component {
   constructor(props) {
     super(props);
-    this.state = { show: false, quantity: 0 };
+    this.state = { show: false, quantity: 0, comment: '' };
   }
 
   formattedPrice() {
@@ -23,23 +23,40 @@ class MenuItem extends Component {
   }
 
   handleShowModal = () => {
-    this.setState({ show: true, quantity: this.state.quantity });
+    this.setState({
+      show: true,
+      quantity: this.state.quantity,
+      comment: this.state.comment,
+    });
   };
 
   handleCloseModal = () => {
-    this.setState({ show: false, quantity: 0 });
+    this.setState({ show: false, quantity: 0, comment: '' });
   };
 
   handleAddToCart = () => {
     this.props.addToCart({
       product: this.props.product._id,
       quantity: this.state.quantity,
+      comment: this.state.comment,
     });
     this.handleCloseModal();
   };
 
   quantityAdded = (qtd) => {
-    this.setState({ show: this.state.show, quantity: qtd });
+    this.setState({
+      show: this.state.show,
+      quantity: qtd,
+      comment: this.state.comment,
+    });
+  };
+
+  commentAdded = (comment) => {
+    this.setState({
+      show: this.state.show,
+      quantity: this.state.quantity,
+      comment: comment,
+    });
   };
 
   render() {
@@ -84,7 +101,10 @@ class MenuItem extends Component {
             </Modal.Title>
           </Modal.Header>
           <Modal.Body>
-            <ProductOrderForm getQuantity={this.quantityAdded} />
+            <ProductOrderForm
+              getQuantity={this.quantityAdded}
+              getComment={this.commentAdded}
+            />
           </Modal.Body>
           <Modal.Footer>
             <ShadedButton onClick={this.handleCloseModal}>Fechar</ShadedButton>

@@ -12,11 +12,15 @@ class ProductOrderForm extends Component {
     this.props.getQuantity(values);
   };
 
+  getComment = (comment) => {
+    this.props.getComment(comment);
+  };
+
   render() {
     return (
       <>
         <QuantityInput getQuantity={this.getQuantity} />
-        <CommentInput />
+        <CommentInput getComment={this.getComment} />
       </>
     );
   }
