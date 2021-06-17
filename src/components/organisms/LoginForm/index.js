@@ -57,9 +57,9 @@ class LoginForm extends Component {
                   </div>
                   <div className="form">
                     <div className="form-group">
-                    <LabeledInput 
-                      type="email" 
-                      name="email" 
+                    <LabeledInput   
+                      type="email"   
+                      name="email"   
                       label="E-mail de acesso"     
                       placeholder="Digite E-mail de acesso"
                       value={values.email}
