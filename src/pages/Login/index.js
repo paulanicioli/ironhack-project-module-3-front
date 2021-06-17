@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
-import LoginForm from '../../components/organisms/LoginForm';
+import Modulo from './module';
 import GeneralTemplate from '../../components/templates/GeneralTemplate';
 import Modal from 'react-bootstrap/Modal';
 
 import apiService from '../../services/api.services';
+
 
 class Login extends Component {
   constructor(props) {
@@ -13,7 +14,7 @@ class Login extends Component {
       error: '',
       showError: false
     }
-  }
+
 
   handleLogin = async (values) => {
     console.log(this.props)
@@ -38,18 +39,8 @@ class Login extends Component {
   render() {
     return (
       <GeneralTemplate updateUserState={this.props.updateUserState} user={this.props.user}>
-        <h1>Login page</h1>
-        <LoginForm handleLogin={this.handleLogin} />
-        <Modal 
-          onHide={() => this.setState({ showError: false })} 
-          show={this.state.showError}
-          centered>
-          <Modal.Header>
-            <strong className="mr-auto">Erro de autenticação</strong>
-          </Modal.Header>
-        <Modal.Body>{this.state.error}</Modal.Body>
-      </Modal>
-      </GeneralTemplate>
+        <Modulo />
+      <GeneralTemplate>
     );
   }
 }

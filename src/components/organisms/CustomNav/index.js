@@ -18,7 +18,7 @@ class CustomNav extends Component {
   render() {
     return (
       <Navbar expand="md">
-          <Navbar.Brand to="#home">Listo</Navbar.Brand>
+          <Navbar.Brand href="/">Listo</Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav" align="end">
             <Nav className="me-auto">

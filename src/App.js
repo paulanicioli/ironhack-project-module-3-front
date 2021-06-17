@@ -15,6 +15,7 @@ import BusinessManagerProtectedRoute from './protectedRoutes/businessManagerProt
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
+import './App.scss';
 
 class App extends React.Component {
   constructor() {

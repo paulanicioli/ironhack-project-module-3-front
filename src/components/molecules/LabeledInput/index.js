@@ -6,6 +6,7 @@ const LabeledInput = ({
   columnMd,
   controlId,
   label,
+  placeholder,
   type,
   name,
   value,
@@ -21,6 +22,7 @@ const LabeledInput = ({
     <Form.Group as={Col} md={columnMd} controlId={controlId}>
       <Form.Label>{label}</Form.Label>
       <Form.Control
+        placeholder={placeholder}
         type={type}
         name={name}
         value={value}

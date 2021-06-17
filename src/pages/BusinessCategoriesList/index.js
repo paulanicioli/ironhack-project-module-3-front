@@ -19,6 +19,7 @@ class BusinessCategoriesList extends Component {
 
   render() {
     return (
+      
       <div>
         <h1 className="section-title">Escolha a categoria</h1>
         <p className="section-subtitle">
@@ -36,7 +37,10 @@ class BusinessCategoriesList extends Component {
             );
           })}
         </div>
+
       </div>
+      
+
     );
   }
 }
