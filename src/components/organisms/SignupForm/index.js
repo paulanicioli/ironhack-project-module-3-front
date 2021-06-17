@@ -62,8 +62,8 @@ class Register extends Component {
                       <LabeledInput 
                         type="text" 
                         name="username" 
-                        label="Nome de usuario"    
-                        placeholder="Nome e sobrenome" 
+                        label="First name"    
+                        placeholder="insert name" 
                         value={values.username}
                         handleChange={handleChange}
                         handleBlur={handleBlur}
@@ -71,6 +71,21 @@ class Register extends Component {
                         touched={touched.username}
                       />    
                   </div>
+                  
+                  <div className="form-group">         
+                     <LabeledInput 
+                        type="text" 
+                        name="lastName" 
+                        label="Last name"     
+                        placeholder="insert last name"
+                        value={values.email}
+                        handleChange={handleChange}
+                        handleBlur={handleBlur}
+                        error={errors.email}
+                        touched={touched.email}
+                     />
+                  </div>
+
 
                   <div className="form-group">         
                      <LabeledInput 

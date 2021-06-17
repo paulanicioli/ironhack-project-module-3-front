@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import LoginForm from '../../components/organisms/LoginForm';
 import Modulo from './module';
 import GeneralTemplate from '../../components/templates/GeneralTemplate';
 
@@ -11,10 +10,8 @@ import GeneralTemplate from '../../components/templates/GeneralTemplate';
   render() {
     return (
       <GeneralTemplate>
-        <h1>Login page</h1>
-    
         <Modulo />
-        
+
       </GeneralTemplate>
     );
   }

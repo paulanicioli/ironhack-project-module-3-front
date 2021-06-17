@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import GeneralTemplate from '../../components/templates/GeneralTemplate';
+import HomeForm from '../../components/organisms/HomeForm';
 
 class Home extends Component {
   constructor() {
@@ -8,9 +9,9 @@ class Home extends Component {
 
   render() {
     return (
-      <GeneralTemplate>
-        <h1>Home Page</h1>
-      </GeneralTemplate>
+      
+        <HomeForm />
+     
     );
   }
 }
