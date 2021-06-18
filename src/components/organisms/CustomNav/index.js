@@ -8,6 +8,8 @@ import NavDropdown from 'react-bootstrap/NavDropdown';
 import CustomButton from '../../atoms/CustomButton';
 import LogoutButton from '../../atoms/LogoutButton';
 
+import logo from '../../../utils/images/listo.png';
+
 import './style.css';
 
 class CustomNav extends Component {
@@ -24,8 +26,10 @@ class CustomNav extends Component {
 
   render() {
     return (
-      <Navbar expand="md">
-        <Navbar.Brand to="#home">Listo</Navbar.Brand>
+      <Navbar sticky="top" expand="md" variant="dark">
+        <Navbar.Brand to="/">
+          <img className="logo-img" src={logo} alt="Listo" />
+        </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav" align="end">
           <Nav className="me-auto">
@@ -33,20 +37,20 @@ class CustomNav extends Component {
               Home
             </Nav.Link>
             <Nav.Link as={Link} className="nav-center" to="/categories">
-              Categories
+              Categorias
             </Nav.Link>
           </Nav>
           <Nav>
             {this.checkUser ? (
-              <NavDropdown title="Profile" id="basic-nav-dropdown">
-                <NavDropdown.Item as={Link} to="#action/3.1">
-                  Action
+              <NavDropdown title="Meu Perfil" id="basic-nav-dropdown">
+                <NavDropdown.Item as={Link} to="/my-profile">
+                  Editar meu perfil
                 </NavDropdown.Item>
-                <NavDropdown.Item as={Link} to="#action/3.2">
-                  Another action
+                <NavDropdown.Item as={Link} to="/checkout">
+                  Meu carrinho
                 </NavDropdown.Item>
-                <NavDropdown.Item as={Link} to="#action/3.3">
-                  Something
+                <NavDropdown.Item as={Link} to="/checkout">
+                  Pedidos
                 </NavDropdown.Item>
                 <NavDropdown.Divider />
                 <NavDropdown.Item>

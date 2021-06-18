@@ -4,7 +4,9 @@ import * as Yup from 'yup';
 import Form from 'react-bootstrap/Form';
 import LabeledInput from '../../molecules/LabeledInput';
 import CustomButton from '../../atoms/CustomButton';
+import FormContainer from '../../molecules/FormContainer';
 
+import './styles.css';
 class LoginForm extends Component {
   constructor(props) {
     super(props);
@@ -40,10 +42,10 @@ class LoginForm extends Component {
             touched,
             errors,
           }) => (
-            <Form onSubmit={handleSubmit}>
+            <FormContainer onSubmit={handleSubmit}>
               <LabeledInput
                 controlId="LoginFormEmail"
-                label="User Email"
+                label="Email:"
                 type="text"
                 name="email"
                 value={values.email}
@@ -54,7 +56,7 @@ class LoginForm extends Component {
               />
               <LabeledInput
                 controlId="LoginFormPassword"
-                label="User Password"
+                label="Senha:"
                 type="password"
                 name="password"
                 value={values.password}
@@ -64,7 +66,7 @@ class LoginForm extends Component {
                 touched={touched.password}
               />
               <CustomButton>Entrar</CustomButton>
-            </Form>
+            </FormContainer>
           )}
         </Formik>
       </div>

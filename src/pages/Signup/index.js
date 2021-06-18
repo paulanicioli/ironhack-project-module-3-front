@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import GeneralTemplate from '../../components/templates/GeneralTemplate';
 
+import SignupForm from '../../components/organisms/SignupForm';
+
 class Signup extends Component {
   constructor() {
     super();
@@ -9,7 +11,7 @@ class Signup extends Component {
   render() {
     return (
       <GeneralTemplate>
-        <h1>Signup page</h1>
+        <SignupForm />
       </GeneralTemplate>
     );
   }

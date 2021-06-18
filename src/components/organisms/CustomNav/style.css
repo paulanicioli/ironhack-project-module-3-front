@@ -1,9 +1,12 @@
 nav,
 .dropdown-menu.show {
-    background-color: var(--custom-blue);
+  background-color: var(--custom-blue);
 }
 
 .me-auto {
-    margin-left: auto;
-    color: red;
+  margin-left: auto;
+}
+
+.logo-img {
+  height: 7vh;
 }
