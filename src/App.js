@@ -30,7 +30,7 @@ class App extends React.Component {
     if (role) {
       return { isUserLogged: true, role: role };
     }
-    
+
     return { isUserLogged: false, role: '' };
   };
 
@@ -44,26 +44,35 @@ class App extends React.Component {
   };
 
   componentDidMount = () => {
-    console.log('mounting app')
-  }
+    console.log('mounting app');
+  };
 
   componentWillUnmount = () => {
-    console.log('unmounting')
-  }
+    console.log('unmounting');
+  };
   render() {
     return (
       <div>
         <Switch>
-          <Route 
-            exact 
-            path="/" 
-            render={() => <Home updateUserState={this.updateUserState} user={this.state.user}/>}
+          <Route
+            exact
+            path="/"
+            render={() => (
+              <Home
+                updateUserState={this.updateUserState}
+                user={this.state.user}
+              />
+            )}
           />
           <Route
             exact
             path="/login"
             render={(props) => (
-              <Login {...props} updateUserState={this.updateUserState} user={this.state.user}/>
+              <Login
+                {...props}
+                updateUserState={this.updateUserState}
+                user={this.state.user}
+              />
             )}
           />
           <Route exact path="/signup" component={Signup} />
@@ -97,10 +106,8 @@ class App extends React.Component {
             render={(props) => (
               <UserProtectedRoute
                 {...props}
-                isUserLogged={true}
-                role="user"
-                // isUserLogged={this.state.user.isUserLogged}
-                // role={this.state.user.role}
+                isUserLogged={this.state.user.isUserLogged}
+                role={this.state.user.role}
                 Component={BusinessDetail}
               />
             )}

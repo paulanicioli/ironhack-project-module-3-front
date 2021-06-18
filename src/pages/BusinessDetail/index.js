@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 
 import Modal from 'react-bootstrap/Modal';
 
+import GeneralTemplate from '../../components/templates/GeneralTemplate';
 import ProductCategoryContainer from '../../components/organisms/ProductCategoryContainer';
 import CustomButton from '../../components/atoms/CustomButton';
 import apiService from '../../services/api.services';
@@ -47,7 +48,7 @@ class BusinessDetail extends Component {
       previousOrderArray.push(partialOrder);
       localStorage.setItem('order', JSON.stringify(previousOrderArray));
     } else {
-      localStorage.seItem('order', JSON.stringify([partialOrder]));
+      localStorage.setItem('order', JSON.stringify([partialOrder]));
     }
   };
 
@@ -80,7 +81,7 @@ class BusinessDetail extends Component {
 
   render() {
     return (
-      <div>
+      <GeneralTemplate isUserLogged={this.props.isUserLogged}>
         <img
           className="business-detail-image"
           src={this.state.business ? this.state.business.imageUrl : ''}
@@ -116,7 +117,7 @@ class BusinessDetail extends Component {
           <hr />
           {this.state.productCategories ? this.renderProductCategories() : ''}
         </div>
-      </div>
+      </GeneralTemplate>
     );
   }
 }

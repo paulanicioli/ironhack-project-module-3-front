@@ -21,6 +21,9 @@ class CustomNav extends Component {
     if (this.props.user) {
       return this.props.user.isUserLogged;
     }
+    if (this.props.isUserLogged) {
+      return this.props.isUserLogged;
+    }
     return false;
   }
 
@@ -32,16 +35,14 @@ class CustomNav extends Component {
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav" align="end">
-          <Nav className="me-auto">
-            <Nav.Link as={Link} className="nav-center" to="/">
-              Home
-            </Nav.Link>
-            <Nav.Link as={Link} className="nav-center" to="/categories">
-              Categorias
-            </Nav.Link>
-          </Nav>
-          <Nav>
-            {this.checkUser ? (
+          {this.checkUser() ? (
+            <Nav className="me-auto">
+              <Nav.Link as={Link} className="nav-center" to="/">
+                Home
+              </Nav.Link>
+              <Nav.Link as={Link} className="nav-center" to="/categories">
+                Categorias
+              </Nav.Link>
               <NavDropdown title="Meu Perfil" id="basic-nav-dropdown">
                 <NavDropdown.Item as={Link} to="/my-profile">
                   Editar meu perfil
@@ -57,12 +58,12 @@ class CustomNav extends Component {
                   <LogoutButton />
                 </NavDropdown.Item>
               </NavDropdown>
-            ) : (
-              <Link to="/login">
-                <CustomButton>Login</CustomButton>
-              </Link>
-            )}
-          </Nav>
+            </Nav>
+          ) : (
+            <Link to="/login">
+              <CustomButton>Login</CustomButton>
+            </Link>
+          )}
         </Navbar.Collapse>
       </Navbar>
     );

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import BusinessCategoryCard from '../../components/organisms/BusinessCategoryCard';
+import GeneralTemplate from '../../components/templates/GeneralTemplate';
 
 import './styles.css';
 
@@ -19,7 +20,7 @@ class BusinessCategoriesList extends Component {
 
   render() {
     return (
-      <div>
+      <GeneralTemplate isUserLogged={this.props.isUserLogged}>
         <h1 className="section-title">Escolha a categoria</h1>
         <p className="section-subtitle">
           Seus pedidos a um clique de distância
@@ -36,7 +37,7 @@ class BusinessCategoriesList extends Component {
             );
           })}
         </div>
-      </div>
+      </GeneralTemplate>
     );
   }
 }

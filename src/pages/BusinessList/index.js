@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
+import GeneralTemplate from '../../components/templates/GeneralTemplate';
 import BusinessListing from '../../components/organisms/BusinessListing';
 
 import apiService from '../../services/api.services';
@@ -24,7 +25,7 @@ class BusinessList extends Component {
 
   render() {
     return (
-      <div>
+      <GeneralTemplate isUserLogged={this.props.isUserLogged}>
         <h1 className="section-title">
           {this.state.businesses.length
             ? this.state.businesses[0].businessCategory.name
@@ -47,7 +48,7 @@ class BusinessList extends Component {
             );
           })}
         </div>
-      </div>
+      </GeneralTemplate>
     );
   }
 }
