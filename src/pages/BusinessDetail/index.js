@@ -41,7 +41,7 @@ class BusinessDetail extends Component {
   }
 
   addToCart = (partialOrder) => {
-    const previousOrder = localStorage.get('order');
+    const previousOrder = localStorage.getItem('order');
     if (previousOrder) {
       const previousOrderArray = JSON.parse(previousOrder);
       previousOrderArray.push(partialOrder);
