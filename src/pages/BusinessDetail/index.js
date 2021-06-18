@@ -41,8 +41,14 @@ class BusinessDetail extends Component {
   }
 
   addToCart = (partialOrder) => {
-    console.log('Product has been added to cart!');
-    console.log('order: ', partialOrder);
+    const previousOrder = localStorage.get('order');
+    if (previousOrder) {
+      const previousOrderArray = JSON.parse(previousOrder);
+      previousOrderArray.push(partialOrder);
+      localStorage.setItem('order', JSON.stringify(previousOrderArray));
+    } else {
+      localStorage.seItem('order', JSON.stringify([partialOrder]));
+    }
   };
 
   renderProductCategories() {
