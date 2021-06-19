@@ -39,9 +39,9 @@ class apiService {
   };
 
   loginUser = async (userData) => {
-      const { data } = await this.api.post('/auth/login', userData);
+    const { data } = await this.api.post('/auth/login', userData);
 
-      return data.message;
+    return data.message;
   };
 
   logoutUser = async () => {
@@ -68,6 +68,13 @@ class apiService {
   getBusinessDetail = async (businessId) => {
     const { data } = await axios.get(
       `${process.env.REACT_APP_BACKEND_URL}/businesses/${businessId}`
+    );
+    return data;
+  };
+
+  getProductDetail = async (productId) => {
+    const { data } = await axios.get(
+      `${process.env.REACT_APP_BACKEND_URL}/products/${productId}`
     );
     return data;
   };
