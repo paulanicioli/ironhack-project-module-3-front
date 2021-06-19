@@ -19,6 +19,7 @@ class apiService {
       (config) => config,
       (error) => {
         if (
+          error.response &&
           error.response.status === 401 &&
           error.response.data.type === 'Auth'
         ) {
