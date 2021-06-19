@@ -33,7 +33,7 @@ class CustomNav extends Component {
                   <NavDropdown.Item as={Link} to="#action/3.3">Something</NavDropdown.Item>
                   <NavDropdown.Divider />
                   <NavDropdown.Item>
-                    <LogoutButton />
+                    <LogoutButton updateUserState={this.props.updateUserState}/>
                   </NavDropdown.Item>
                 </NavDropdown> 
               :                
