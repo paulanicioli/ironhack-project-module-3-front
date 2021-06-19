@@ -24,14 +24,18 @@ class Login extends Component {
       localStorage.setItem('token', token);
       localStorage.setItem('role', role);
 
-      this.props.updateUserState(role);
+      this.props.updateUserState({ isUserLogged: true, role });
 
       this.props.history.push('/categories');
     } catch (error) {
-      this.setState({
-        error: error.response.data.message,
-        showError: true,
-      });
+      if (error.response) {
+        this.setState({
+          error: error.response.data.message,
+          showError: true
+        })
+      } else {
+        console.log('other error ==> ', error)
+      }
     }
   };
 

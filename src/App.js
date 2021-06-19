@@ -34,22 +34,10 @@ class App extends React.Component {
     return { isUserLogged: false, role: '' };
   };
 
-  updateUserState = (role) => {
-    this.setState({
-      user: {
-        isUserLogged: true,
-        role: role,
-      },
-    });
+  updateUserState = (user) => {
+    this.setState({ user });
   };
 
-  componentDidMount = () => {
-    console.log('mounting app');
-  };
-
-  componentWillUnmount = () => {
-    console.log('unmounting');
-  };
   render() {
     return (
       <div>
