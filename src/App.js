@@ -9,6 +9,7 @@ import BusinessCategoriesList from './pages/BusinessCategoriesList';
 import BusinessList from './pages/BusinessList';
 import BusinessDetail from './pages/BusinessDetail';
 import ProductDetail from './pages/ProductDetail';
+import Checkout from './pages/CheckOut';
 
 import UserProtectedRoute from './protectedRoutes/userProtectedRoutes';
 import BusinessManagerProtectedRoute from './protectedRoutes/businessManagerProtectedRoutes';
@@ -121,6 +122,18 @@ class App extends React.Component {
                 isUserLogged={this.state.user.isUserLogged}
                 role={this.state.user.role}
                 Component={ProductDetail}
+              />
+            )}
+          />
+          <Route
+            exact
+            path="/checkout"
+            render={(props) => (
+              <UserProtectedRoute
+                {...props}
+                isUserLogged={this.state.user.isUserLogged}
+                role={this.state.user.role}
+                Component={Checkout}
               />
             )}
           />
