@@ -25,7 +25,7 @@ class BusinessList extends Component {
 
   render() {
     return (
-      <GeneralTemplate isUserLogged={this.props.isUserLogged}>
+      <GeneralTemplate updateUserState={this.props.updateUserState} user={this.props.user}>
         <h1 className="section-title">
           {this.state.businesses.length
             ? this.state.businesses[0].businessCategory.name

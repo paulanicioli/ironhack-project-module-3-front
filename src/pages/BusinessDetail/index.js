@@ -81,7 +81,7 @@ class BusinessDetail extends Component {
 
   render() {
     return (
-      <GeneralTemplate isUserLogged={this.props.isUserLogged}>
+      <GeneralTemplate updateUserState={this.props.updateUserState} user={this.props.user}>
         <img
           className="business-detail-image"
           src={this.state.business ? this.state.business.imageUrl : ''}

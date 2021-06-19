@@ -70,8 +70,8 @@ class App extends React.Component {
             render={(props) => (
               <UserProtectedRoute
                 {...props}
-                isUserLogged={this.state.user.isUserLogged}
-                role={this.state.user.role}
+                updateUserState={this.updateUserState} 
+                user={this.state.user}
                 Component={BusinessCategoriesList}
               />
             )}
@@ -82,8 +82,8 @@ class App extends React.Component {
             render={(props) => (
               <UserProtectedRoute
                 {...props}
-                isUserLogged={this.state.user.isUserLogged}
-                role={this.state.user.role}
+                updateUserState={this.updateUserState} 
+                user={this.state.user}
                 Component={BusinessList}
               />
             )}
@@ -94,8 +94,10 @@ class App extends React.Component {
             render={(props) => (
               <UserProtectedRoute
                 {...props}
-                isUserLogged={this.state.user.isUserLogged}
-                role={this.state.user.role}
+                updateUserState={this.updateUserState} 
+                user={this.state.user}
+                // isUserLogged={this.state.user.isUserLogged}
+                // role={this.state.user.role}
                 Component={BusinessDetail}
               />
             )}
@@ -106,8 +108,8 @@ class App extends React.Component {
             render={(props) => (
               <BusinessManagerProtectedRoute
                 {...props}
-                isUserLogged={this.state.user.isUserLogged}
-                role={this.state.user.role}
+                updateUserState={this.updateUserState} 
+                user={this.state.user}
                 Component={ProductDetail}
               />
             )}
