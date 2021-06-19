@@ -1,15 +1,20 @@
+.form-content {
+  display: flex;
+  flex-direction: row;
+}
+
 .right-side {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  height: 90%;
   background-color: var(--custom-yellow);
   font: bold 12px Sans-Serif;
   letter-spacing: 2px;
   text-transform: uppercase;
-  width: 100%;
   position: absolute;
-  right: -34%;
+  height: 300px;
+  width: 100px;
+  right: 0%;
   border-radius: 6px;
   z-index: 1;
   transition: all 400ms ease-in-out;

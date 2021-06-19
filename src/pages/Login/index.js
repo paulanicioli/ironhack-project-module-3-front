@@ -42,7 +42,11 @@ class Login extends Component {
         user={this.props.user}
       >
         <h1>Faça login:</h1>
-        <LoginForm handleLogin={this.handleLogin} className="right-side" />
+        <div className="form-content">
+          <LoginForm handleLogin={this.handleLogin} />
+          <div className="right-side"></div>
+        </div>
+
         <Modal
           onHide={() => this.setState({ showError: false })}
           show={this.state.showError}
