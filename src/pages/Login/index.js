@@ -2,10 +2,10 @@ import React, { Component } from 'react';
 import LoginForm from '../../components/organisms/LoginForm';
 import GeneralTemplate from '../../components/templates/GeneralTemplate';
 import Modal from 'react-bootstrap/Modal';
-
+import { Link } from 'react-router-dom';
 import apiService from '../../services/api.services';
 
-import './styles.scss';
+import './styles.css';
 
 class Login extends Component {
   constructor(props) {
@@ -41,10 +41,10 @@ class Login extends Component {
         updateUserState={this.props.updateUserState}
         user={this.props.user}
       >
-        <h1>Faça login:</h1>
+      
         <div className="form-content">
           <LoginForm handleLogin={this.handleLogin} />
-          <div className="right-side"></div>
+          
         </div>
 
         <Modal

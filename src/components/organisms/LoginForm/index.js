@@ -1,77 +1,122 @@
+
 import React, { Component } from 'react';
-import { Formik } from 'formik';
-import * as Yup from 'yup';
-import Form from 'react-bootstrap/Form';
-import LabeledInput from '../../molecules/LabeledInput';
+import { Grid, TextField,Typography,Link } from '@material-ui/core'
+//import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
+import { Formik, Form } from 'formik';
+import Checkbox from '@material-ui/core/Checkbox';
 import CustomButton from '../../atoms/CustomButton';
-import FormContainer from '../../molecules/FormContainer';
+import * as Yup from 'yup';
+import Textfield from '../../atoms/FormUI/TextField';
+
+
 
 import './styles.css';
-class LoginForm extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {};
-    this.formSchema = Yup.object().shape({
-      email: Yup.string()
-        .trim()
-        .email('Formato inválido')
-        .required('Campo obrigatório'),
-      password: Yup.string()
-        .trim()
-        .min(6, 'Mínimo de 6 caracteres')
-        .max(100, 'Máximo de 100 caracteres')
-        .required('Campo obrigatório'),
-    });
-  }
 
-  render() {
-    return (
-      <div>
-        <Formik
-          initialValues={{ email: '', password: '' }}
-          onSubmit={(info) => {
-            this.props.handleLogin(info);
-          }}
-          validationSchema={this.formSchema}
-        >
-          {({
-            handleSubmit,
-            handleChange,
-            handleBlur,
-            values,
-            touched,
-            errors,
-          }) => (
-            <FormContainer onSubmit={handleSubmit}>
-              <LabeledInput
-                controlId="LoginFormEmail"
-                label="Email:"
-                type="text"
-                name="email"
-                value={values.email}
-                handleChange={handleChange}
-                handleBlur={handleBlur}
-                error={errors.email}
-                touched={touched.email}
-              />
-              <LabeledInput
-                controlId="LoginFormPassword"
-                label="Senha:"
-                type="password"
-                name="password"
-                value={values.password}
-                handleChange={handleChange}
-                handleBlur={handleBlur}
-                error={errors.password}
-                touched={touched.password}
-              />
-              <CustomButton>Entrar</CustomButton>
-            </FormContainer>
-          )}
-        </Formik>
-      </div>
-    );
-  }
+
+class LoginForm extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {};
+        this.formSchema = Yup.object().shape({
+          email: Yup.string()
+            .trim()
+            .email('Formato inválido')
+            .required('Campo obrigatório'),
+          password: Yup.string()
+            .trim()
+            .min(6, 'Mínimo de 6 caracteres')
+            .max(100, 'Máximo de 100 caracteres')
+            .required('Campo obrigatório'),
+        });
+    }
+    
+    render(){    
+        return(
+            <div className="style">
+                <Formik 
+                    initialValues={{ email: '', password: '' }}
+                    onSubmit={(info) => {
+                        this.props.handleLogin(info);
+                    }}
+                    validationSchema={this.formSchema} >
+                    
+                    {({
+                        handleSubmit,
+                        handleChange,
+                        handleBlur,
+                        values,
+                        touched,
+                        errors,
+                    }) => (
+   
+                    <Form onSubmit={handleSubmit}>
+                   
+                        <Grid align='center'>
+                            <h2>Login</h2>
+                        </Grid>
+
+                        
+                        <Grid item xs={12}>   
+                        <Textfield 
+                            controlId="LoginFormEmail"
+                            label='E-mail' 
+                            type="text"
+                            name="email"
+                            placeholder='Digite seu E-mail' 
+                            value={values.email}
+                            handleChange={handleChange}
+                            handleBlur={handleBlur}
+                            error={errors.email}
+                            touched={touched.email}
+                        />
+                        </Grid>
+                        <br></br>
+                        
+                        <Grid item xs={12}> 
+                        <Textfield 
+
+                            controlId="LoginFormPassword"
+                            label="Senha:"
+                            type="password"
+                            name="password"
+                            placeholder='Digite a senha'  
+                            value={values.password}
+                            handleChange={handleChange}
+                            handleBlur={handleBlur}
+                            error={errors.password}
+                            touched={touched.password}
+                            
+                        />
+                        </Grid>
+                        <br></br>
+                        <Grid align='center'> 
+                            <FormControlLabel
+                                control={
+                                    <Checkbox
+                                        name="checkedB"
+                                        color="primary"
+                                    />
+                                        }
+                                label="Lembrar"
+                            />
+                        
+                            <CustomButton>Entrar</CustomButton>
+                                        
+                            <Typography > Já possui sua conta?
+                                <Link href="/Signup" >
+                                    <br></br>
+                                        Cadastrar 
+                                </Link>
+                            </Typography>
+                        </Grid>            
+                    </Form>
+                    )}
+                </Formik>
+            </div>        
+        )
+
+    }  
 }
 
 export default LoginForm;
