@@ -9,6 +9,7 @@ import BusinessCategoriesList from './pages/BusinessCategoriesList';
 import BusinessList from './pages/BusinessList';
 import BusinessDetail from './pages/BusinessDetail';
 import ProductDetail from './pages/ProductDetail';
+import Checkout from './pages/CheckOut';
 
 import UserProtectedRoute from './protectedRoutes/userProtectedRoutes';
 import BusinessManagerProtectedRoute from './protectedRoutes/businessManagerProtectedRoutes';
@@ -34,22 +35,10 @@ class App extends React.Component {
     return { isUserLogged: false, role: '' };
   };
 
-  updateUserState = (role) => {
-    this.setState({
-      user: {
-        isUserLogged: true,
-        role: role,
-      },
-    });
+  updateUserState = (user) => {
+    this.setState({ user });
   };
 
-  componentDidMount = () => {
-    console.log('mounting app');
-  };
-
-  componentWillUnmount = () => {
-    console.log('unmounting');
-  };
   render() {
     return (
       <div>
@@ -82,8 +71,8 @@ class App extends React.Component {
             render={(props) => (
               <UserProtectedRoute
                 {...props}
-                isUserLogged={this.state.user.isUserLogged}
-                role={this.state.user.role}
+                updateUserState={this.updateUserState} 
+                user={this.state.user}
                 Component={BusinessCategoriesList}
               />
             )}
@@ -94,8 +83,8 @@ class App extends React.Component {
             render={(props) => (
               <UserProtectedRoute
                 {...props}
-                isUserLogged={this.state.user.isUserLogged}
-                role={this.state.user.role}
+                updateUserState={this.updateUserState} 
+                user={this.state.user}
                 Component={BusinessList}
               />
             )}
@@ -106,8 +95,10 @@ class App extends React.Component {
             render={(props) => (
               <UserProtectedRoute
                 {...props}
-                isUserLogged={this.state.user.isUserLogged}
-                role={this.state.user.role}
+                updateUserState={this.updateUserState} 
+                user={this.state.user}
+                // isUserLogged={this.state.user.isUserLogged}
+                // role={this.state.user.role}
                 Component={BusinessDetail}
               />
             )}
@@ -118,9 +109,21 @@ class App extends React.Component {
             render={(props) => (
               <BusinessManagerProtectedRoute
                 {...props}
+                updateUserState={this.updateUserState} 
+                user={this.state.user}
+                Component={ProductDetail}
+              />
+            )}
+          />
+          <Route
+            exact
+            path="/checkout"
+            render={(props) => (
+              <UserProtectedRoute
+                {...props}
                 isUserLogged={this.state.user.isUserLogged}
                 role={this.state.user.role}
-                Component={ProductDetail}
+                Component={Checkout}
               />
             )}
           />

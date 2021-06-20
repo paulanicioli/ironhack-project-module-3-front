@@ -20,7 +20,7 @@ class BusinessCategoriesList extends Component {
 
   render() {
     return (
-      <GeneralTemplate isUserLogged={this.props.isUserLogged}>
+      <GeneralTemplate updateUserState={this.props.updateUserState} user={this.props.user}>
         <h1 className="section-title">Escolha a categoria</h1>
         <p className="section-subtitle">
           Seus pedidos a um clique de distância

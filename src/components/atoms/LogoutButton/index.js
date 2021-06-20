@@ -8,12 +8,19 @@ class LogoutButton extends Component {
         this.apiService = apiService
     }
 
+    cleanUser = async () => {
+        console.log('on logout', this.props)
+        await this.apiService.logoutUser();
+
+        this.props.updateUserState({ isUserLogged: false, role: '' })
+    }
+
     render() {
         return (
             <Button 
               variant="secondary"
               size="sm"
-              onClick={this.apiService.logoutUser}>
+              onClick={this.cleanUser}>
                 Logout
             </Button>
         )

@@ -17,16 +17,6 @@ class CustomNav extends Component {
     super(props);
   }
 
-  checkUser() {
-    if (this.props.user) {
-      return this.props.user.isUserLogged;
-    }
-    if (this.props.isUserLogged) {
-      return this.props.isUserLogged;
-    }
-    return false;
-  }
-
   render() {
     return (
       <Navbar sticky="top" expand="md" variant="dark">
@@ -35,7 +25,7 @@ class CustomNav extends Component {
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav" align="end">
-          {this.checkUser() ? (
+          {this.props.user.isUserLogged ? (
             <Nav className="me-auto">
               <Nav.Link as={Link} className="nav-center" to="/">
                 Home
@@ -55,7 +45,7 @@ class CustomNav extends Component {
                 </NavDropdown.Item>
                 <NavDropdown.Divider />
                 <NavDropdown.Item>
-                  <LogoutButton />
+                  <LogoutButton updateUserState={this.props.updateUserState} />
                 </NavDropdown.Item>
               </NavDropdown>
             </Nav>
