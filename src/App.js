@@ -64,7 +64,17 @@ class App extends React.Component {
               />
             )}
           />
-          <Route exact path="/signup" component={Signup} />
+          <Route 
+            exact 
+            path="/signup" 
+            render={(props) => (
+              <Signup 
+              {...props}
+                updateUserState={this.updateUserState}
+                user={this.state.user}
+              />
+            )}
+          />
           <Route
             exact
             path="/categories"
@@ -121,8 +131,8 @@ class App extends React.Component {
             render={(props) => (
               <UserProtectedRoute
                 {...props}
-                isUserLogged={this.state.user.isUserLogged}
-                role={this.state.user.role}
+                updateUserState={this.updateUserState}
+              user={this.state.user}
                 Component={Checkout}
               />
             )}

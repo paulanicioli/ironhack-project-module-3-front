@@ -61,7 +61,9 @@ class CheckOut extends Component {
 
   render() {
     return (
-      <GeneralTemplate isUserLogged={this.props.isUserLogged}>
+      <GeneralTemplate 
+        updateUserState={this.props.updateUserState}
+        user={this.props.user}>
         <h1>Seu pedido:</h1>
         {this.renderAllProducts()}
         <CustomButton>Fechar pedido</CustomButton>

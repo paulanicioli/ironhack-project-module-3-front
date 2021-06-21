@@ -4,13 +4,14 @@ import GeneralTemplate from '../../components/templates/GeneralTemplate';
 import SignupForm from '../../components/organisms/SignupForm/index';
 
 class Signup extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
   }
 
   render() {
+    console.log(this.props)
     return (
-      <GeneralTemplate>
+      <GeneralTemplate updateUserState={this.props.updateUserState} user={this.props.user}>
         <SignupForm />
       </GeneralTemplate>
     );
