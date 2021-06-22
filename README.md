@@ -1,4 +1,4 @@
-# Listo Marketplace - API Aplication
+# Listo Marketplace - Frontend Aplication
 
 Listo is a marketplace platform.
 
