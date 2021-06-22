@@ -8,3 +8,21 @@
   margin-left: 500px;
   
 }
+
+
+@media (max-width: 870px) {
+
+  .style {
+    padding :40px;
+    height:500px;
+    width:500px;
+    margin:50px auto; 
+
+    border: none;
+    
+  
+  }
+
+
+
+}

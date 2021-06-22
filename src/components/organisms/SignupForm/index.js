@@ -10,7 +10,6 @@ import {
 import Textfield from '../../atoms/FormUI/TextField';
 import Button from '../../atoms/CustomButton';
 import Select from '../../atoms/FormUI/Select';
-import LabeledInput from '../../molecules/LabeledInput';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -196,7 +195,6 @@ const App = () => {
                       Enviar
                     </Button>
                   </Grid>
-
 
                 </Grid>
 
