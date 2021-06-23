@@ -38,6 +38,13 @@ class CheckOut extends Component {
     }
   }
 
+  async sendOrder() {
+    await this.state.apiService.saveOrder({
+      ...JSON.parse(localStorage.getItem('order')),
+      user: this.props.user._id,
+    });
+  }
+
   renderAllProducts() {
     if (
       this.state.productsList[0] &&
@@ -51,7 +58,7 @@ class CheckOut extends Component {
             business={product.business}
             productCategory={product.productCategory}
             quantity={this.state.order[index].quantity}
-            comments={this.state.order[index].comments}
+            comments={this.state.order[index].comment}
           />
         );
       });
@@ -61,12 +68,13 @@ class CheckOut extends Component {
 
   render() {
     return (
-      <GeneralTemplate 
+      <GeneralTemplate
         updateUserState={this.props.updateUserState}
-        user={this.props.user}>
+        user={this.props.user}
+      >
         <h1>Seu pedido:</h1>
         {this.renderAllProducts()}
-        <CustomButton>Fechar pedido</CustomButton>
+        <CustomButton onClick={this.sendOrder}>Fechar pedido</CustomButton>
       </GeneralTemplate>
     );
   }

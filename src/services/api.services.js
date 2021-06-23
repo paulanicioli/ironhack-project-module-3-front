@@ -78,6 +78,13 @@ class apiService {
     );
     return data;
   };
+
+  saveOrder = async (orderInfo) => {
+    const { data } = await axios.post(
+      `${process.env.REACT_APP_BACKEND_URL}/orders`
+    );
+    return data;
+  };
 }
 
 export default new apiService();

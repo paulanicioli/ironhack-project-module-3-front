@@ -45,11 +45,10 @@ class BusinessDetail extends Component {
     const previousOrder = localStorage.getItem('order');
     if (previousOrder) {
       const previousOrderArray = JSON.parse(previousOrder);
-      console.log('previousOrder ==> ', previousOrderArray);
       const productInArrayIndex = previousOrderArray.findIndex((element) => {
         return element.product == partialOrder.product;
       });
-      if (productInArrayIndex) {
+      if (productInArrayIndex >= 0) {
         previousOrderArray[productInArrayIndex].quantity =
           partialOrder.quantity;
         previousOrderArray[productInArrayIndex].comment = partialOrder.comment;
