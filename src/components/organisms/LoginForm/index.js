@@ -54,6 +54,7 @@ class LoginForm extends Component {
                    
                         <Grid align='center'>
                             <h2>Login</h2>
+                            <br></br>
                         </Grid>
 
                         
