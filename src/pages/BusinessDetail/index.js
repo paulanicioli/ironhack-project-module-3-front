@@ -45,7 +45,17 @@ class BusinessDetail extends Component {
     const previousOrder = localStorage.getItem('order');
     if (previousOrder) {
       const previousOrderArray = JSON.parse(previousOrder);
-      previousOrderArray.push(partialOrder);
+      console.log('previousOrder ==> ', previousOrderArray);
+      const productInArrayIndex = previousOrderArray.findIndex((element) => {
+        return element.product == partialOrder.product;
+      });
+      if (productInArrayIndex) {
+        previousOrderArray[productInArrayIndex].quantity =
+          partialOrder.quantity;
+        previousOrderArray[productInArrayIndex].comment = partialOrder.comment;
+      } else {
+        previousOrderArray.push(partialOrder);
+      }
       localStorage.setItem('order', JSON.stringify(previousOrderArray));
     } else {
       localStorage.setItem('order', JSON.stringify([partialOrder]));
@@ -81,7 +91,10 @@ class BusinessDetail extends Component {
 
   render() {
     return (
-      <GeneralTemplate updateUserState={this.props.updateUserState} user={this.props.user}>
+      <GeneralTemplate
+        updateUserState={this.props.updateUserState}
+        user={this.props.user}
+      >
         <img
           className="business-detail-image"
           src={this.state.business ? this.state.business.imageUrl : ''}

@@ -19,8 +19,14 @@ class ProductOrderForm extends Component {
   render() {
     return (
       <>
-        <QuantityInput getQuantity={this.getQuantity} />
-        <CommentInput getComment={this.getComment} />
+        <QuantityInput
+          getQuantity={this.getQuantity}
+          product={this.props.product}
+        />
+        <CommentInput
+          getComment={this.getComment}
+          product={this.props.product}
+        />
       </>
     );
   }

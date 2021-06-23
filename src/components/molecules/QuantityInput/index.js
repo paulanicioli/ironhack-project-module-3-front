@@ -10,8 +10,27 @@ class QuantityInput extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      quantity: 1,
+      quantity: this.findProductInLocalStorage(),
     };
+  }
+
+  findProductInLocalStorage() {
+    const currentOrder = localStorage.getItem('order');
+    if (currentOrder) {
+      const orderArray = JSON.parse(currentOrder);
+      const productInArray = orderArray.find((element) => {
+        return element.product == this.props.product._id;
+      });
+      if (productInArray) {
+        return productInArray.quantity;
+      }
+    }
+    return 1;
+  }
+
+  async componentDidMount() {
+    await this.setState({ quantity: this.findProductInLocalStorage() });
+    this.props.getQuantity(this.state.quantity);
   }
 
   addQuantity = async () => {
@@ -20,7 +39,7 @@ class QuantityInput extends Component {
   };
 
   reduceQuantity = async () => {
-    await this.setState({ quantity: Math.max(0, this.state.quantity - 1) });
+    await this.setState({ quantity: Math.max(1, this.state.quantity - 1) });
     this.handleChange();
   };
 

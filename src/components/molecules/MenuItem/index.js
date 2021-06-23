@@ -102,6 +102,8 @@ class MenuItem extends Component {
           </Modal.Header>
           <Modal.Body>
             <ProductOrderForm
+              product={this.props.product}
+              productId={this.props.product._id}
               getQuantity={this.quantityAdded}
               getComment={this.commentAdded}
             />
