@@ -12,7 +12,8 @@ class CheckOut extends Component {
       order: JSON.parse(localStorage.getItem('order')),
       apiService: apiService,
       productsList: [],
-      price: '',
+      formattedPrice: '',
+      price: 0,
     };
   }
 
@@ -26,7 +27,8 @@ class CheckOut extends Component {
       order: this.state.order,
       apiService: this.state.apiService,
       productsList: newProductsList,
-      price: this.formattedPrice(totalPrice),
+      formattedPrice: this.formattedPrice(totalPrice),
+      price: totalPrice,
     });
   }
 
@@ -47,7 +49,8 @@ class CheckOut extends Component {
       order: updatedOrder,
       apiService: this.state.apiService,
       productsList: updatedProductsList,
-      price: this.formattedPrice(totalPrice),
+      formattedPrice: this.formattedPrice(totalPrice),
+      price: totalPrice,
     });
   };
 
@@ -62,7 +65,8 @@ class CheckOut extends Component {
       order: updatedOrder,
       apiService: this.state.apiService,
       productsList: this.state.productsList,
-      price: this.formattedPrice(totalPrice),
+      fomattedPrice: this.formattedPrice(totalPrice),
+      price: totalPrice,
     });
   };
 
@@ -73,6 +77,8 @@ class CheckOut extends Component {
       order: updatedOrder,
       apiService: this.state.apiService,
       productsList: this.state.productsList,
+      formattedPrice: this.state.formattedPrice,
+      price: this.state.price,
     });
   };
 
@@ -91,13 +97,12 @@ class CheckOut extends Component {
   }
 
   sendOrder = async () => {
-    console.log('Pedido salvo!');
-    console.log(this.state.order);
-    console.log(this.state.price);
-    // await this.state.apiService.saveOrder({
-    //   ...JSON.parse(localStorage.getItem('order')),
-    //   user: this.props.user._id,
-    // });
+    console.log('user : ', this.props.user);
+    await this.state.apiService.saveOrder({
+      ...JSON.parse(localStorage.getItem('order')),
+      token: localStorage.getItem('token'),
+      totalPrice: this.state.price,
+    });
   };
 
   renderAllProducts() {
@@ -132,7 +137,7 @@ class CheckOut extends Component {
       >
         <h1>Seu pedido:</h1>
         {this.renderAllProducts()}
-        <h6>Preço final: {this.state.price}</h6>
+        <h6>Preço final: {this.state.formattedPrice}</h6>
         <CustomButton onClick={this.sendOrder}>Fechar pedido</CustomButton>
       </GeneralTemplate>
     );
