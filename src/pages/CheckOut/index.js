@@ -5,6 +5,8 @@ import ProductCheckoutContainer from '../../components/organisms/ProductCheckout
 import CustomButton from '../../components/atoms/CustomButton';
 
 import apiService from '../../services/api.services';
+
+import './styles.css';
 class CheckOut extends Component {
   constructor(props) {
     super(props);
@@ -68,6 +70,7 @@ class CheckOut extends Component {
       fomattedPrice: this.formattedPrice(totalPrice),
       price: totalPrice,
     });
+    console.log('new state: ', this.state);
   };
 
   updateComment = (index, comment) => {
@@ -112,17 +115,20 @@ class CheckOut extends Component {
     ) {
       return this.state.productsList.map((product, index) => {
         return (
-          <ProductCheckoutContainer
-            key={product._id}
-            product={product}
-            business={product.business}
-            productCategory={product.productCategory}
-            quantity={this.state.order[index].quantity}
-            comments={this.state.order[index].comment}
-            removeItem={this.removeItem}
-            updateQuantity={this.updateQuantity}
-            updateComment={this.updateComment}
-          />
+          <>
+            <ProductCheckoutContainer
+              key={product._id}
+              product={product}
+              business={product.business}
+              productCategory={product.productCategory}
+              quantity={this.state.order[index].quantity}
+              comments={this.state.order[index].comment}
+              removeItem={this.removeItem}
+              updateQuantity={this.updateQuantity}
+              updateComment={this.updateComment}
+            />
+            <hr />
+          </>
         );
       });
     }
@@ -135,10 +141,14 @@ class CheckOut extends Component {
         updateUserState={this.props.updateUserState}
         user={this.props.user}
       >
-        <h1>Seu pedido:</h1>
-        {this.renderAllProducts()}
-        <h6>Preço final: {this.state.formattedPrice}</h6>
-        <CustomButton onClick={this.sendOrder}>Fechar pedido</CustomButton>
+        <div className="checkout-container">
+          <h1>Seu pedido:</h1>
+          {this.renderAllProducts()}
+          <h5 className="total-price">Total: {this.state.formattedPrice}</h5>
+          <div className="send-order-button">
+            <CustomButton onClick={this.sendOrder}>Fechar pedido</CustomButton>
+          </div>
+        </div>
       </GeneralTemplate>
     );
   }

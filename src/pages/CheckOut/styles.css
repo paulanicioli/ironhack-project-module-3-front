@@ -1,0 +1,13 @@
+.checkout-container {
+  margin: 5vh 5vw;
+}
+
+.total-price {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.send-order-button {
+  display: flex;
+  justify-content: center;
+}

@@ -34,7 +34,7 @@ class CommentInput extends Component {
   render() {
     return (
       <Form>
-        <Form.Group controlId="exampleForm.ControlTextarea2">
+        <Form.Group controlId={this.props.product._id}>
           <Form.Control
             key={this.props.product._id}
             as="textarea"

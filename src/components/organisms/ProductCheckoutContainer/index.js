@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 
 import OrderQuantityInput from '../../molecules/OrderQuantityInput';
 import OrderCommentInput from '../../molecules/OrderCommentInput';
-import CustomButton from '../../atoms/CustomButton';
 
 import './styles.css';
 
@@ -11,7 +10,12 @@ class ProductCheckoutContainer extends Component {
     super(props);
   }
 
-  removeItem = () => {
+  formattedPrice(price) {
+    return 'R$' + price.toFixed(2).replace('.', ',');
+  }
+
+  removeItem = (e) => {
+    e.preventDefault();
     const orderArray = JSON.parse(localStorage.getItem('order'));
     const productInArrayIndex = orderArray.findIndex((element) => {
       return element.product == this.props.product._id;
@@ -44,22 +48,30 @@ class ProductCheckoutContainer extends Component {
   render() {
     return (
       <div>
-        <img
-          className="checkout-prod-img"
-          src={this.props.product.imageUrl}
-          alt={this.props.product.name}
-        />
-        <h1>{this.props.product.name}</h1>
-        <OrderQuantityInput
-          product={this.props.product}
-          getQuantity={this.updateQuantity}
-        />
-        <OrderCommentInput
-          product={this.props.product}
-          getComment={this.updateComment}
-        />
-        <h6>R${this.props.product.price}</h6>
-        <CustomButton onClick={this.removeItem}>Remover item</CustomButton>
+        <div className="checkout-first-row-container">
+          <div className="product-info-container">
+            <img
+              className="checkout-prod-img"
+              src={this.props.product.imageUrl}
+              alt={this.props.product.name}
+            />
+            <h6 className="product-name">{this.props.product.name}</h6>
+          </div>
+          <OrderQuantityInput
+            product={this.props.product}
+            getQuantity={this.updateQuantity}
+          />
+        </div>
+        <div className="checkout-second-row-container">
+          <OrderCommentInput
+            product={this.props.product}
+            getComment={this.updateComment}
+          />
+          <h6>{this.formattedPrice(this.props.product.price)}</h6>
+        </div>
+        <a className="remove-item-anchor" onClick={this.removeItem}>
+          Remover item X
+        </a>
       </div>
     );
   }
