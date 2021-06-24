@@ -10,6 +10,7 @@ import BusinessList from './pages/BusinessList';
 import BusinessDetail from './pages/BusinessDetail';
 import ProductDetail from './pages/ProductDetail';
 import Checkout from './pages/CheckOut';
+import Orders from './pages/Orders';
 
 import UserProtectedRoute from './protectedRoutes/userProtectedRoutes';
 import BusinessManagerProtectedRoute from './protectedRoutes/businessManagerProtectedRoutes';
@@ -64,12 +65,12 @@ class App extends React.Component {
               />
             )}
           />
-          <Route 
-            exact 
-            path="/signup" 
+          <Route
+            exact
+            path="/signup"
             render={(props) => (
-              <Signup 
-              {...props}
+              <Signup
+                {...props}
                 updateUserState={this.updateUserState}
                 user={this.state.user}
               />
@@ -81,7 +82,7 @@ class App extends React.Component {
             render={(props) => (
               <UserProtectedRoute
                 {...props}
-                updateUserState={this.updateUserState} 
+                updateUserState={this.updateUserState}
                 user={this.state.user}
                 Component={BusinessCategoriesList}
               />
@@ -93,7 +94,7 @@ class App extends React.Component {
             render={(props) => (
               <UserProtectedRoute
                 {...props}
-                updateUserState={this.updateUserState} 
+                updateUserState={this.updateUserState}
                 user={this.state.user}
                 Component={BusinessList}
               />
@@ -105,7 +106,7 @@ class App extends React.Component {
             render={(props) => (
               <UserProtectedRoute
                 {...props}
-                updateUserState={this.updateUserState} 
+                updateUserState={this.updateUserState}
                 user={this.state.user}
                 // isUserLogged={this.state.user.isUserLogged}
                 // role={this.state.user.role}
@@ -119,7 +120,7 @@ class App extends React.Component {
             render={(props) => (
               <BusinessManagerProtectedRoute
                 {...props}
-                updateUserState={this.updateUserState} 
+                updateUserState={this.updateUserState}
                 user={this.state.user}
                 Component={ProductDetail}
               />
@@ -132,8 +133,20 @@ class App extends React.Component {
               <UserProtectedRoute
                 {...props}
                 updateUserState={this.updateUserState}
-              user={this.state.user}
+                user={this.state.user}
                 Component={Checkout}
+              />
+            )}
+          />
+          <Route
+            exact
+            path="/orders"
+            render={(props) => (
+              <UserProtectedRoute
+                {...props}
+                updateUserState={this.updateUserState}
+                user={this.state.user}
+                Component={Orders}
               />
             )}
           />

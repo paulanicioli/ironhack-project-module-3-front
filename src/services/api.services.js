@@ -81,7 +81,8 @@ class apiService {
 
   saveOrder = async (orderInfo) => {
     const { data } = await axios.post(
-      `${process.env.REACT_APP_BACKEND_URL}/orders`
+      `${process.env.REACT_APP_BACKEND_URL}/orders`,
+      orderInfo
     );
     return data;
   };

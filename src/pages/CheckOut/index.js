@@ -95,12 +95,13 @@ class CheckOut extends Component {
   }
 
   sendOrder = async () => {
-    console.log('user : ', this.props.user);
     await this.state.apiService.saveOrder({
-      ...JSON.parse(localStorage.getItem('order')),
+      order: JSON.parse(localStorage.getItem('order')),
       token: localStorage.getItem('token'),
       totalPrice: this.state.price,
+      business: this.state.productsList[0].business._id,
     });
+    this.props.history.push('/orders');
   };
 
   returnToBusiness = () => {
