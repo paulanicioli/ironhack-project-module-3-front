@@ -12,16 +12,26 @@ class CheckOut extends Component {
       order: JSON.parse(localStorage.getItem('order')),
       apiService: apiService,
       productsList: [],
+      price: '',
     };
   }
 
   async componentDidMount() {
     const newProductsList = await this.grabProductInfo();
+    let totalPrice = 0;
+    for (let i = 0; i < newProductsList.length; i++) {
+      totalPrice += this.state.order[i].quantity * newProductsList[i].price;
+    }
     this.setState({
       order: this.state.order,
       apiService: this.state.apiService,
       productsList: newProductsList,
+      price: this.formattedPrice(totalPrice),
     });
+  }
+
+  formattedPrice(price) {
+    return 'R$' + price.toFixed(2).replace('.', ',');
   }
 
   removeItem = (index) => {
@@ -29,16 +39,36 @@ class CheckOut extends Component {
     updatedOrder.splice(index, 1);
     const updatedProductsList = this.state.productsList;
     updatedProductsList.splice(index, 1);
+    let totalPrice = 0;
+    for (let i = 0; i < updatedProductsList.length; i++) {
+      totalPrice += updatedOrder[i].quantity * updatedProductsList[i].price;
+    }
     this.setState({
       order: updatedOrder,
       apiService: this.state.apiService,
       productsList: updatedProductsList,
+      price: this.formattedPrice(totalPrice),
     });
   };
 
   updateQuantity = (index, quantity) => {
     const updatedOrder = this.state.order;
     updatedOrder[index].quantity = quantity;
+    let totalPrice = 0;
+    for (let i = 0; i < updatedOrder.length; i++) {
+      totalPrice += updatedOrder[i].quantity * this.state.productsList[i].price;
+    }
+    this.setState({
+      order: updatedOrder,
+      apiService: this.state.apiService,
+      productsList: this.state.productsList,
+      price: this.formattedPrice(totalPrice),
+    });
+  };
+
+  updateComment = (index, comment) => {
+    const updatedOrder = this.state.order;
+    updatedOrder[index].comment = comment;
     this.setState({
       order: updatedOrder,
       apiService: this.state.apiService,
@@ -60,12 +90,15 @@ class CheckOut extends Component {
     }
   }
 
-  async sendOrder() {
-    await this.state.apiService.saveOrder({
-      ...JSON.parse(localStorage.getItem('order')),
-      user: this.props.user._id,
-    });
-  }
+  sendOrder = async () => {
+    console.log('Pedido salvo!');
+    console.log(this.state.order);
+    console.log(this.state.price);
+    // await this.state.apiService.saveOrder({
+    //   ...JSON.parse(localStorage.getItem('order')),
+    //   user: this.props.user._id,
+    // });
+  };
 
   renderAllProducts() {
     if (
@@ -83,6 +116,7 @@ class CheckOut extends Component {
             comments={this.state.order[index].comment}
             removeItem={this.removeItem}
             updateQuantity={this.updateQuantity}
+            updateComment={this.updateComment}
           />
         );
       });
@@ -98,6 +132,7 @@ class CheckOut extends Component {
       >
         <h1>Seu pedido:</h1>
         {this.renderAllProducts()}
+        <h6>Preço final: {this.state.price}</h6>
         <CustomButton onClick={this.sendOrder}>Fechar pedido</CustomButton>
       </GeneralTemplate>
     );
