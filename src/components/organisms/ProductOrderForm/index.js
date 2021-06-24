@@ -19,6 +19,7 @@ class ProductOrderForm extends Component {
   render() {
     return (
       <>
+        <h6>Quantidade a ser adicionada no carrinho:</h6>
         <QuantityInput
           getQuantity={this.getQuantity}
           product={this.props.product}

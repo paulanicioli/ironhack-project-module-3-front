@@ -50,7 +50,6 @@ class QuantityInput extends Component {
   render() {
     return (
       <>
-        <h6>Quantidade a ser adicionada no carrinho:</h6>
         <div className="quantity-input">
           <InputGroup size="lg">
             <InputGroup.Prepend>

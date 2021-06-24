@@ -24,6 +24,28 @@ class CheckOut extends Component {
     });
   }
 
+  removeItem = (index) => {
+    const updatedOrder = this.state.order;
+    updatedOrder.splice(index, 1);
+    const updatedProductsList = this.state.productsList;
+    updatedProductsList.splice(index, 1);
+    this.setState({
+      order: updatedOrder,
+      apiService: this.state.apiService,
+      productsList: updatedProductsList,
+    });
+  };
+
+  updateQuantity = (index, quantity) => {
+    const updatedOrder = this.state.order;
+    updatedOrder[index].quantity = quantity;
+    this.setState({
+      order: updatedOrder,
+      apiService: this.state.apiService,
+      productsList: this.state.productsList,
+    });
+  };
+
   async grabProductInfo() {
     try {
       const productsInfoList = [];
@@ -59,6 +81,8 @@ class CheckOut extends Component {
             productCategory={product.productCategory}
             quantity={this.state.order[index].quantity}
             comments={this.state.order[index].comment}
+            removeItem={this.removeItem}
+            updateQuantity={this.updateQuantity}
           />
         );
       });
