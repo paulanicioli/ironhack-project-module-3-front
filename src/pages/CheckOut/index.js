@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import GeneralTemplate from '../../components/templates/GeneralTemplate';
 import ProductCheckoutContainer from '../../components/organisms/ProductCheckoutContainer';
 import CustomButton from '../../components/atoms/CustomButton';
+import ShadedButton from '../../components/atoms/ShadedButton';
 
 import apiService from '../../services/api.services';
 
@@ -14,7 +15,6 @@ class CheckOut extends Component {
       order: JSON.parse(localStorage.getItem('order')),
       apiService: apiService,
       productsList: [],
-      formattedPrice: '',
       price: 0,
     };
   }
@@ -29,7 +29,6 @@ class CheckOut extends Component {
       order: this.state.order,
       apiService: this.state.apiService,
       productsList: newProductsList,
-      formattedPrice: this.formattedPrice(totalPrice),
       price: totalPrice,
     });
   }
@@ -51,7 +50,6 @@ class CheckOut extends Component {
       order: updatedOrder,
       apiService: this.state.apiService,
       productsList: updatedProductsList,
-      formattedPrice: this.formattedPrice(totalPrice),
       price: totalPrice,
     });
   };
@@ -67,10 +65,8 @@ class CheckOut extends Component {
       order: updatedOrder,
       apiService: this.state.apiService,
       productsList: this.state.productsList,
-      fomattedPrice: this.formattedPrice(totalPrice),
       price: totalPrice,
     });
-    console.log('new state: ', this.state);
   };
 
   updateComment = (index, comment) => {
@@ -80,7 +76,6 @@ class CheckOut extends Component {
       order: updatedOrder,
       apiService: this.state.apiService,
       productsList: this.state.productsList,
-      formattedPrice: this.state.formattedPrice,
       price: this.state.price,
     });
   };
@@ -106,6 +101,12 @@ class CheckOut extends Component {
       token: localStorage.getItem('token'),
       totalPrice: this.state.price,
     });
+  };
+
+  returnToBusiness = () => {
+    this.props.history.push(
+      `/businesses/${this.state.productsList[0].business._id}`
+    );
   };
 
   renderAllProducts() {
@@ -142,10 +143,21 @@ class CheckOut extends Component {
         user={this.props.user}
       >
         <div className="checkout-container">
-          <h1>Seu pedido:</h1>
+          <h4>
+            Seu pedido em{' '}
+            {this.state.productsList.length > 0
+              ? this.state.productsList[0].business.name
+              : ''}
+            :
+          </h4>
           {this.renderAllProducts()}
-          <h5 className="total-price">Total: {this.state.formattedPrice}</h5>
+          <h5 className="total-price">
+            Total: {this.formattedPrice(this.state.price)}
+          </h5>
           <div className="send-order-button">
+            <ShadedButton onClick={this.returnToBusiness}>
+              Retornar ao restaurante
+            </ShadedButton>
             <CustomButton onClick={this.sendOrder}>Fechar pedido</CustomButton>
           </div>
         </div>

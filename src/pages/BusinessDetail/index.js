@@ -88,6 +88,10 @@ class BusinessDetail extends Component {
     this.setState(previousState);
   };
 
+  sendToCheckout = () => {
+    this.props.history.push('/checkout');
+  };
+
   render() {
     return (
       <GeneralTemplate
@@ -128,6 +132,11 @@ class BusinessDetail extends Component {
           <h1 className="section-title centered-title">Cardápio</h1>
           <hr />
           {this.state.productCategories ? this.renderProductCategories() : ''}
+          <div className="centered-checkout-button">
+            <CustomButton onClick={this.sendToCheckout}>
+              Ir para meu carrinho
+            </CustomButton>
+          </div>
         </div>
       </GeneralTemplate>
     );

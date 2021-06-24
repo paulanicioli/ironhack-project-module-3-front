@@ -38,3 +38,8 @@
   justify-content: flex-end;
   margin-right: 10px;
 }
+
+.centered-checkout-button {
+  display: flex;
+  justify-content: center;
+}

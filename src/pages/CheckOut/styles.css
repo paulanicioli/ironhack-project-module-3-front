@@ -10,4 +10,5 @@
 .send-order-button {
   display: flex;
   justify-content: center;
+  align-items: center;
 }
