@@ -82,7 +82,9 @@ class MenuItem extends Component {
               <h6 className="price-container">{this.formattedPrice()}</h6>
             </div>
             <div>
-              <small>{this.props.product.description}</small>
+              <small className="product-description">
+                {this.props.product.description}
+              </small>
               <AddToCartButton onClick={this.handleShowModal}>
                 +
               </AddToCartButton>
