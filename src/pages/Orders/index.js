@@ -15,9 +15,7 @@ class Orders extends Component {
   }
 
   async componentDidMount() {
-    const orders = await this.apiService.getOrders(
-      localStorage.getItem('token')
-    );
+    const orders = await this.apiService.getOrders();
     this.setState({ orders: orders });
   }
 

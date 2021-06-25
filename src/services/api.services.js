@@ -80,8 +80,8 @@ class apiService {
     return data;
   };
 
-  getOrders = async (token) => {
-    const { data } = await this.api.post('/orders/my-orders', { token: token });
+  getOrders = async () => {
+    const { data } = await this.api.get('/orders/my-orders');
     return data;
   };
 }
