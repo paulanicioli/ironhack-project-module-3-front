@@ -9,7 +9,6 @@ class LogoutButton extends Component {
     }
 
     cleanUser = async () => {
-        console.log('on logout', this.props)
         await this.apiService.logoutUser();
 
         this.props.updateUserState({ isUserLogged: false, role: '' })

@@ -23,6 +23,7 @@ class apiService {
           error.response.status === 401 &&
           error.response.data.type === 'Auth'
         ) {
+          console.log(error.response.data);
           localStorage.removeItem('token');
           localStorage.removeItem('role');
           //Ou mostramos uma página de 'usuário não autorizado?'
