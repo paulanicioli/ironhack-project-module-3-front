@@ -46,7 +46,6 @@ class BusinessList extends Component {
   }
 
   setCoordinates = (lng, lat) => {
-    console.log('setting coords ', lng, lat)
     this.setState({ coordinates: [ lng, lat ]})
 
     localStorage.setItem('coordinates', JSON.stringify([ lng, lat ]))
