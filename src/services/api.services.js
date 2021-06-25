@@ -23,6 +23,7 @@ class apiService {
           error.response.status === 401 &&
           error.response.data.type === 'Auth'
         ) {
+          console.log(error.response.data)
           localStorage.removeItem('token');
           localStorage.removeItem('role');
           //Ou mostramos uma página de 'usuário não autorizado?'
@@ -52,14 +53,14 @@ class apiService {
   };
 
   getBusinessCategories = async () => {
-    const { data } = await axios.get(
+    const { data } = await this.api.get(
       `${process.env.REACT_APP_BACKEND_URL}/categories`
     );
     return data;
   };
 
   getBusinessFromCategory = async (categoryId, coordinates, searchRadius ) => {
-    const { data } = await axios.get(
+    const { data } = await this.api.get(
       `${process.env.REACT_APP_BACKEND_URL}/categories/${categoryId}` +
         `?lng=${coordinates[0]}&lat=${coordinates[1]}&searchRadius=${searchRadius}`
     );
@@ -67,21 +68,21 @@ class apiService {
   };
 
   getBusinessDetail = async (businessId) => {
-    const { data } = await axios.get(
+    const { data } = await this.api.get(
       `${process.env.REACT_APP_BACKEND_URL}/businesses/${businessId}`
     );
     return data;
   };
 
   getProductDetail = async (productId) => {
-    const { data } = await axios.get(
+    const { data } = await this.api.get(
       `${process.env.REACT_APP_BACKEND_URL}/products/${productId}`
     );
     return data;
   };
 
   saveOrder = async (orderInfo) => {
-    const { data } = await axios.post(
+    const { data } = await this.api.post(
       `${process.env.REACT_APP_BACKEND_URL}/orders`,
       orderInfo
     );
@@ -89,9 +90,8 @@ class apiService {
   };
 
   getOrders = async (token) => {
-    const { data } = await axios.post(
-      `${process.env.REACT_APP_BACKEND_URL}/orders/my-orders`,
-      token
+    const { data } = await this.api.get(
+      `${process.env.REACT_APP_BACKEND_URL}/orders/my-orders`
     );
     return data;
   };
