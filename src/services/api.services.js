@@ -58,9 +58,10 @@ class apiService {
     return data;
   };
 
-  getBusinessFromCategory = async (categoryId) => {
+  getBusinessFromCategory = async (categoryId, coordinates, searchRadius ) => {
     const { data } = await axios.get(
-      `${process.env.REACT_APP_BACKEND_URL}/categories/${categoryId}`
+      `${process.env.REACT_APP_BACKEND_URL}/categories/${categoryId}` +
+        `?lng=${coordinates[0]}&lat=${coordinates[1]}&searchRadius=${searchRadius}`
     );
     return data;
   };

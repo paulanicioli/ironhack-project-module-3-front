@@ -1,0 +1,10 @@
+.google-logo {
+    display: flex;
+    margin-top: .5rem;
+}
+
+.google-logo img {
+    width: 100px;
+    margin-left: auto;
+
+}
