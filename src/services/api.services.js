@@ -86,6 +86,13 @@ class apiService {
     );
     return data;
   };
+
+  getOrders = async (token) => {
+    const { data } = await axios.get(
+      `${process.env.REACT_APP_BACKEND_URL}/orders?token=${token}`
+    );
+    return data;
+  };
 }
 
 export default new apiService();
