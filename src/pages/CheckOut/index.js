@@ -20,16 +20,18 @@ class CheckOut extends Component {
   }
 
   async componentDidMount() {
-    const newProductsList = await this.grabProductInfo();
-    let totalPrice = 0;
-    for (let i = 0; i < newProductsList.length; i++) {
-      totalPrice += this.state.order[i].quantity * newProductsList[i].price;
+    if (this.state.order) {
+      const newProductsList = await this.grabProductInfo();
+      let totalPrice = 0;
+      for (let i = 0; i < newProductsList.length; i++) {
+        totalPrice += this.state.order[i].quantity * newProductsList[i].price;
+      }
+      this.setState({
+        order: this.state.order,
+        productsList: newProductsList,
+        price: totalPrice,
+      });
     }
-    this.setState({
-      order: this.state.order,
-      productsList: newProductsList,
-      price: totalPrice,
-    });
   }
 
   formattedPrice(price) {

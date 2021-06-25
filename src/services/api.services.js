@@ -89,7 +89,7 @@ class apiService {
   };
 
   getOrders = async (token) => {
-    const { data } = await axios.get(
+    const { data } = await axios.post(
       `${process.env.REACT_APP_BACKEND_URL}/orders/my-orders`,
       token
     );
