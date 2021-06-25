@@ -40,7 +40,7 @@ class CustomNav extends Component {
                 <NavDropdown.Item as={Link} to="/checkout">
                   Meu carrinho
                 </NavDropdown.Item>
-                <NavDropdown.Item as={Link} to="/checkout">
+                <NavDropdown.Item as={Link} to="/orders">
                   Pedidos
                 </NavDropdown.Item>
                 <NavDropdown.Divider />

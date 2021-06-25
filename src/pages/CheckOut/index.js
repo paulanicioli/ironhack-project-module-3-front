@@ -11,9 +11,9 @@ import './styles.css';
 class CheckOut extends Component {
   constructor(props) {
     super(props);
+    this.apiService = apiService;
     this.state = {
       order: JSON.parse(localStorage.getItem('order')),
-      apiService: apiService,
       productsList: [],
       price: 0,
     };
@@ -27,7 +27,6 @@ class CheckOut extends Component {
     }
     this.setState({
       order: this.state.order,
-      apiService: this.state.apiService,
       productsList: newProductsList,
       price: totalPrice,
     });
@@ -48,7 +47,6 @@ class CheckOut extends Component {
     }
     this.setState({
       order: updatedOrder,
-      apiService: this.state.apiService,
       productsList: updatedProductsList,
       price: totalPrice,
     });
@@ -63,7 +61,6 @@ class CheckOut extends Component {
     }
     this.setState({
       order: updatedOrder,
-      apiService: this.state.apiService,
       productsList: this.state.productsList,
       price: totalPrice,
     });
@@ -74,7 +71,6 @@ class CheckOut extends Component {
     updatedOrder[index].comment = comment;
     this.setState({
       order: updatedOrder,
-      apiService: this.state.apiService,
       productsList: this.state.productsList,
       price: this.state.price,
     });
@@ -84,7 +80,7 @@ class CheckOut extends Component {
     try {
       const productsInfoList = [];
       for (let i = 0; i < this.state.order.length; i++) {
-        productsInfoList[i] = await this.state.apiService.getProductDetail(
+        productsInfoList[i] = await this.apiService.getProductDetail(
           this.state.order[i].product
         );
       }
@@ -95,13 +91,14 @@ class CheckOut extends Component {
   }
 
   sendOrder = async () => {
-    await this.state.apiService.saveOrder({
+    await this.apiService.saveOrder({
       order: JSON.parse(localStorage.getItem('order')),
       token: localStorage.getItem('token'),
       totalPrice: this.state.price,
       business: this.state.productsList[0].business._id,
     });
     this.props.history.push('/orders');
+    localStorage.removeItem('order');
   };
 
   returnToBusiness = () => {
