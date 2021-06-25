@@ -1,0 +1,33 @@
+.order-container > div {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.specific-order-container {
+  margin: 0;
+}
+
+.badge-gray-background {
+  background: darkgray;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+
+.badge-yellow-background {
+  background: var(--custom-yellow);
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+
+.order-details {
+  display: flex;
+  justify-content: space-between;
+}
+
+.order-details h6 {
+  margin: 0;
+}
