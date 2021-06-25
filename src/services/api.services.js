@@ -52,47 +52,35 @@ class apiService {
   };
 
   getBusinessCategories = async () => {
-    const { data } = await axios.get(
-      `${process.env.REACT_APP_BACKEND_URL}/categories`
-    );
+    const { data } = await this.api.get('/categories');
     return data;
   };
 
-  getBusinessFromCategory = async (categoryId, coordinates, searchRadius ) => {
-    const { data } = await axios.get(
-      `${process.env.REACT_APP_BACKEND_URL}/categories/${categoryId}` +
+  getBusinessFromCategory = async (categoryId, coordinates, searchRadius) => {
+    const { data } = await this.api.get(
+      `/categories/${categoryId}` +
         `?lng=${coordinates[0]}&lat=${coordinates[1]}&searchRadius=${searchRadius}`
     );
     return data;
   };
 
   getBusinessDetail = async (businessId) => {
-    const { data } = await axios.get(
-      `${process.env.REACT_APP_BACKEND_URL}/businesses/${businessId}`
-    );
+    const { data } = await this.api.get(`/businesses/${businessId}`);
     return data;
   };
 
   getProductDetail = async (productId) => {
-    const { data } = await axios.get(
-      `${process.env.REACT_APP_BACKEND_URL}/products/${productId}`
-    );
+    const { data } = await this.api.get(`/products/${productId}`);
     return data;
   };
 
   saveOrder = async (orderInfo) => {
-    const { data } = await axios.post(
-      `${process.env.REACT_APP_BACKEND_URL}/orders`,
-      orderInfo
-    );
+    const { data } = await this.api.post('/orders', orderInfo);
     return data;
   };
 
   getOrders = async (token) => {
-    const { data } = await axios.post(
-      `${process.env.REACT_APP_BACKEND_URL}/orders/my-orders`,
-      token
-    );
+    const { data } = await this.api.post('/orders/my-orders', { token: token });
     return data;
   };
 }

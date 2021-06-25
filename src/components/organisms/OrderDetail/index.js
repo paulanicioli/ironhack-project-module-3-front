@@ -18,7 +18,7 @@ class OrderDetail extends Component {
       <div>
         {this.props.order.products.map((element, index) => {
           return (
-            <div className="specific- order-container">
+            <div className="specific-order-container">
               <small>
                 {element.name} {' x'} {this.props.order.quantities[index]}
               </small>
@@ -51,7 +51,7 @@ class OrderDetail extends Component {
         <div>
           <h4>{this.props.order.business.name}</h4>
           <small>
-            {new Date(this.props.order.createdAt).toLocaleDateString('pt-BR')}
+            {new Date(this.props.order.createdAt).toLocaleTimeString('pt-BR')}
           </small>
         </div>
         <div className="order-details">
