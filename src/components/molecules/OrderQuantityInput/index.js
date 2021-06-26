@@ -65,7 +65,7 @@ class QuantityInput extends Component {
               type="number"
               onChange={this.handleChange}
               value={this.state.quantity}
-              className="current-quantity"
+              className="order-current-quantity"
             />
             <InputGroup.Append>
               <Button
