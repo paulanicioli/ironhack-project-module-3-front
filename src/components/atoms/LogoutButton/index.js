@@ -16,8 +16,8 @@ class LogoutButton extends Component {
 
     render() {
         return (
-            <Button 
-              variant="secondary"
+            <Button id="nav-logout-btn"
+              variant="outline-secondary"
               size="sm"
               onClick={this.cleanUser}>
                 Logout

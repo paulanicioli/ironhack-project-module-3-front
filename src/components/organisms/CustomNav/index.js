@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
 import NavDropdown from 'react-bootstrap/NavDropdown';
+import Button from 'react-bootstrap/Button';
 
 import CustomButton from '../../atoms/CustomButton';
 import LogoutButton from '../../atoms/LogoutButton';
@@ -72,7 +73,9 @@ class CustomNav extends Component {
               <Nav.Link as={Link} className="nav-center" to="/categories">
                 Categorias
               </Nav.Link>
-              <NavDropdown title="Meu Perfil" id="basic-nav-dropdown">
+              <Nav.Link>Meus pedidos</Nav.Link>
+              <LogoutButton updateUserState={this.props.updateUserState} />
+              {/* <NavDropdown title="Meu Perfil" id="basic-nav-dropdown">
                 <NavDropdown.Item as={Link} to="/my-profile">
                   Editar meu perfil
                 </NavDropdown.Item>
@@ -80,18 +83,30 @@ class CustomNav extends Component {
                   Meu carrinho
                 </NavDropdown.Item>
                 <NavDropdown.Item as={Link} to="/orders">
-                  Pedidos
+                 Meus pedidos
                 </NavDropdown.Item>
                 <NavDropdown.Divider />
                 <NavDropdown.Item>
                   <LogoutButton updateUserState={this.props.updateUserState} />
                 </NavDropdown.Item>
-              </NavDropdown>
+              </NavDropdown> */}
             </Nav>
           ) : (
-            <Link to="/login">
-              <CustomButton>Login</CustomButton>
-            </Link>
+            <div className="nav-auth-btn-group">
+              <div>
+                <Button variant="secondary" sz="sm" as={Link} to="/login" id="nav-login-btn">
+                  Entre
+                </Button>
+              </div>
+              <span>ou</span>
+              <div>
+              <Button variant="light" sz="sm" as={Link} to="/signup" id="nav-signup-btn">
+                Cadastre-se
+              </Button>
+
+              </div>
+            </div>
+           
           )}
         </Navbar.Collapse>
       </Navbar>

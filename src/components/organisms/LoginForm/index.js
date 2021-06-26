@@ -9,10 +9,7 @@ import CustomButton from '../../atoms/CustomButton';
 import * as Yup from 'yup';
 import Textfield from '../../atoms/FormUI/TextField';
 
-
-
 import './styles.css';
-
 
 class LoginForm extends Component {
     constructor(props) {
@@ -92,7 +89,7 @@ class LoginForm extends Component {
                         </Grid>
                         <br></br>
                         <Grid align='center'> 
-                            <FormControlLabel
+                            {/* <FormControlLabel
                                 control={
                                     <Checkbox
                                         name="checkedB"
@@ -100,14 +97,16 @@ class LoginForm extends Component {
                                     />
                                         }
                                 label="Lembrar"
-                            />
+                            /> */}
                         
                             <CustomButton>Entrar</CustomButton>
+
+                            <br />
                                         
-                            <Typography > Já possui sua conta?
+                            <Typography > Ainda não tem uma conta?
                                 <Link href="/Signup" >
-                                    <br></br>
-                                        Cadastrar 
+                                    <br/>
+                                        Cadastre-se
                                 </Link>
                             </Typography>
                         </Grid>            

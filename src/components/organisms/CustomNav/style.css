@@ -38,3 +38,39 @@ nav,
 .order-tracker {
   padding: 0;
 }
+
+.navbar-toggler,
+.nav-link,
+#nav-logout-btn {
+  margin-right: 10px;
+}
+
+.nav-auth-btn-group {
+  margin: 15px 30%;
+}
+
+.nav-auth-btn-group span {
+  margin: 5px 0;
+  display: block;
+  text-align: center;
+  color: white;
+}
+
+.nav-auth-btn-group a {
+  display: block;
+  font-weight: bold;
+  border-radius: 10px;
+}
+
+#nav-login-btn {
+  background-color: #384166;
+}
+
+#nav-signup-btn {
+  color: var(--custom-blue)
+}
+
+#nav-logout-btn{
+  width: 100px;
+  margin-left: auto;
+}
