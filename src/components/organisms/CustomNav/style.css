@@ -39,7 +39,9 @@ nav,
   padding: 0;
 }
 
-.navbar-toggler {
+.navbar-toggler,
+.nav-link,
+#nav-logout-btn {
   margin-right: 10px;
 }
 
@@ -53,6 +55,7 @@ nav,
   text-align: center;
   color: white;
 }
+
 .nav-auth-btn-group a {
   display: block;
   font-weight: bold;
@@ -65,4 +68,9 @@ nav,
 
 #nav-signup-btn {
   color: var(--custom-blue)
+}
+
+#nav-logout-btn{
+  width: 100px;
+  margin-left: auto;
 }
