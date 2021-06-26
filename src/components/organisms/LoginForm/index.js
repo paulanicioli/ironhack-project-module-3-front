@@ -89,7 +89,7 @@ class LoginForm extends Component {
                         </Grid>
                         <br></br>
                         <Grid align='center'> 
-                            <FormControlLabel
+                            {/* <FormControlLabel
                                 control={
                                     <Checkbox
                                         name="checkedB"
@@ -97,9 +97,11 @@ class LoginForm extends Component {
                                     />
                                         }
                                 label="Lembrar"
-                            />
+                            /> */}
                         
                             <CustomButton>Entrar</CustomButton>
+
+                            <br />
                                         
                             <Typography > Ainda não tem uma conta?
                                 <Link href="/Signup" >
