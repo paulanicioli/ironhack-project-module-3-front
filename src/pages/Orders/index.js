@@ -12,7 +12,7 @@ class Orders extends Component {
   constructor(props) {
     super(props);
     this.apiService = apiService;
-    this.state = {};
+    this.state = { isLoading: true };
   }
 
   itemsInCart() {
@@ -26,7 +26,7 @@ class Orders extends Component {
 
   async componentDidMount() {
     const orders = await this.apiService.getOrders();
-    this.setState({ orders: orders });
+    this.setState({ orders: orders, isLoading: false });
   }
 
   renderAllOrders() {
@@ -58,7 +58,9 @@ class Orders extends Component {
       >
         <div className="orders-container">
           <h1 className="section-title">Meus pedidos</h1>
-          <div className="all-orders-container">{this.renderAllOrders()}</div>
+          <div className="all-orders-container">
+            {!this.state.isLoading ? this.renderAllOrders() : ''}
+          </div>
         </div>
       </GeneralTemplate>
     );
