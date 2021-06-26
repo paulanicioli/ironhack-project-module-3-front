@@ -19,12 +19,20 @@
   align-items: center;
 }
 
+.checkout-first-row-container h6 {
+  margin: 0;
+}
+
 .checkout-second-row-container {
   margin-top: 10px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+}
+
+.checkout-second-row-container h6 {
+  margin: 0;
 }
 
 .product-info-container {
@@ -37,5 +45,10 @@
 .remove-item-anchor {
   display: flex;
   justify-content: flex-end;
+  align-items: center;
   color: var(--custom-gray);
+}
+
+.remove-item-anchor span {
+  margin-right: 5px;
 }

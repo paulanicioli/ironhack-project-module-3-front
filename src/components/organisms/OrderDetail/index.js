@@ -18,11 +18,9 @@ class OrderDetail extends Component {
       <div>
         {this.props.order.products.map((element, index) => {
           return (
-            <div className="specific-order-container">
-              <small>
-                {element.name} {' x'} {this.props.order.quantities[index]}
-              </small>
-            </div>
+            <h6 className="order-item-info">
+              {element.name} {' x'} {this.props.order.quantities[index]}
+            </h6>
           );
         })}
       </div>
@@ -32,15 +30,19 @@ class OrderDetail extends Component {
   showStatus() {
     if (this.props.order.completed) {
       return (
-        <Badge pill className="badge-gray-background ">
-          Concluído
-        </Badge>
+        <div className="badge-container">
+          <Badge pill className="badge-gray-background ">
+            Concluído
+          </Badge>
+        </div>
       );
     } else {
       return (
-        <Badge pill className="badge-yellow-background ">
-          Em progresso
-        </Badge>
+        <div className="badge-container">
+          <Badge pill className="badge-yellow-background ">
+            Em progresso
+          </Badge>
+        </div>
       );
     }
   }

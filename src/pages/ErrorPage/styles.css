@@ -1,0 +1,13 @@
+.error-message-container {
+  margin: 5vh 5vw;
+}
+
+.error-message-container > div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.error-img {
+  width: 80vw;
+}

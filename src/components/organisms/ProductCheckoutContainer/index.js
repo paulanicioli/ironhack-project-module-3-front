@@ -3,11 +3,15 @@ import React, { Component } from 'react';
 import OrderQuantityInput from '../../molecules/OrderQuantityInput';
 import OrderCommentInput from '../../molecules/OrderCommentInput';
 
+import { ArchiveFill } from 'react-bootstrap-icons';
 import './styles.css';
 
 class ProductCheckoutContainer extends Component {
   constructor(props) {
     super(props);
+    this.state = {
+      subtotalPrice: 0,
+    };
   }
 
   formattedPrice(price) {
@@ -26,6 +30,7 @@ class ProductCheckoutContainer extends Component {
   };
 
   updateQuantity = (value) => {
+    this.setState({ subtotalPrice: value * this.props.product.price });
     const orderArray = JSON.parse(localStorage.getItem('order'));
     const productInArrayIndex = orderArray.findIndex((element) => {
       return element.product == this.props.product._id;
@@ -67,10 +72,10 @@ class ProductCheckoutContainer extends Component {
             product={this.props.product}
             getComment={this.updateComment}
           />
-          <h6>{this.formattedPrice(this.props.product.price)}</h6>
+          <h6>{this.formattedPrice(this.state.subtotalPrice)}</h6>
         </div>
         <a className="remove-item-anchor" onClick={this.removeItem}>
-          Remover item X
+          <span>Remover</span> <ArchiveFill />
         </a>
       </div>
     );

@@ -1,10 +1,14 @@
 import React, { Component } from 'react';
 import Form from 'react-bootstrap/Form';
 
+import { PencilFill } from 'react-bootstrap-icons';
+import { CheckCircleFill } from 'react-bootstrap-icons';
+
+import './styles.css';
 class CommentInput extends Component {
   constructor(props) {
     super(props);
-    this.state = { comment: this.findProductInLocalStorage() };
+    this.state = { comment: this.findProductInLocalStorage(), editing: false };
   }
 
   findProductInLocalStorage() {
@@ -22,30 +26,66 @@ class CommentInput extends Component {
   }
 
   async componentDidMount() {
-    await this.setState({ comment: this.findProductInLocalStorage() });
+    await this.setState({
+      comment: this.findProductInLocalStorage(),
+      editing: this.state.editing,
+    });
     this.props.getComment(this.state.comment);
   }
 
   handleChange = async (e) => {
-    await this.setState({ comment: e.target.value });
+    await this.setState({
+      comment: e.target.value,
+      editing: this.state.editing,
+    });
     this.props.getComment(this.state.comment);
   };
 
-  render() {
-    return (
-      <Form>
-        <Form.Group controlId={this.props.product._id}>
-          <Form.Control
-            key={this.props.product._id}
-            as="textarea"
-            rows={1}
-            name="comment"
-            defaultValue={this.state.comment}
-            onChange={this.handleChange}
+  renderCommentBox() {
+    if (this.state.editing) {
+      return (
+        <div className="order-comment-container">
+          <Form>
+            <Form.Group controlId={this.props.product._id}>
+              <Form.Control
+                key={this.props.product._id}
+                as="textarea"
+                size="sm"
+                rows={2}
+                name="comment"
+                defaultValue={this.state.comment}
+                onChange={this.handleChange}
+              />
+            </Form.Group>
+          </Form>
+          <CheckCircleFill
+            size={20}
+            onClick={() =>
+              this.setState({ comment: this.state.comment, editing: false })
+            }
           />
-        </Form.Group>
-      </Form>
+        </div>
+      );
+    }
+    return (
+      <div className="order-comment-container">
+        <h6>
+          {this.state.comment
+            ? `Comentário:  ${this.state.comment}`
+            : 'Nenhum comentário adicionado'}
+        </h6>
+        <PencilFill
+          size={20}
+          onClick={() =>
+            this.setState({ comment: this.state.comment, editing: true })
+          }
+        />
+      </div>
     );
+  }
+
+  render() {
+    return <>{this.renderCommentBox()}</>;
   }
 }
 

@@ -109,6 +109,10 @@ class CheckOut extends Component {
     );
   };
 
+  returnToCategories = () => {
+    this.props.history.push('/categories');
+  };
+
   renderAllProducts() {
     if (
       this.state.productsList[0] &&
@@ -142,25 +146,30 @@ class CheckOut extends Component {
         updateUserState={this.props.updateUserState}
         user={this.props.user}
       >
-        <div className="checkout-container">
-          <h4>
-            Seu pedido em{' '}
-            {this.state.productsList.length > 0
-              ? this.state.productsList[0].business.name
-              : ''}
-            :
-          </h4>
-          {this.renderAllProducts()}
-          <h5 className="total-price">
-            Total: {this.formattedPrice(this.state.price)}
-          </h5>
-          <div className="send-order-button">
-            <ShadedButton onClick={this.returnToBusiness}>
-              Retornar ao restaurante
-            </ShadedButton>
-            <CustomButton onClick={this.sendOrder}>Fechar pedido</CustomButton>
+        {this.state.productsList.length > 0 ? (
+          <div className="checkout-container">
+            <h4>Seu pedido em {this.state.productsList[0].business.name}:</h4>
+            {this.renderAllProducts()}
+            <h5 className="total-price">
+              Total: {this.formattedPrice(this.state.price)}
+            </h5>
+            <div className="send-order-button">
+              <ShadedButton onClick={this.returnToBusiness}>
+                Retornar ao restaurante
+              </ShadedButton>
+              <CustomButton onClick={this.sendOrder}>
+                Fechar pedido
+              </CustomButton>
+            </div>
           </div>
-        </div>
+        ) : (
+          <div className="checkout-container">
+            <h3>Você ainda não adicionou items ao seu carrinho!</h3>
+            <CustomButton onClick={this.returnToCategories}>
+              Retornar ao menu de categorias
+            </CustomButton>
+          </div>
+        )}
       </GeneralTemplate>
     );
   }

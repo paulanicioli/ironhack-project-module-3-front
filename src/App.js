@@ -11,6 +11,7 @@ import BusinessDetail from './pages/BusinessDetail';
 import ProductDetail from './pages/ProductDetail';
 import Checkout from './pages/CheckOut';
 import Orders from './pages/Orders';
+import ErrorPage from './pages/ErrorPage';
 
 import UserProtectedRoute from './protectedRoutes/userProtectedRoutes';
 import BusinessManagerProtectedRoute from './protectedRoutes/businessManagerProtectedRoutes';
@@ -147,6 +148,15 @@ class App extends React.Component {
                 updateUserState={this.updateUserState}
                 user={this.state.user}
                 Component={Orders}
+              />
+            )}
+          />
+          <Route
+            render={(props) => (
+              <ErrorPage
+                updateUserState={this.updateUserState}
+                user={this.state.user}
+                {...props}
               />
             )}
           />
