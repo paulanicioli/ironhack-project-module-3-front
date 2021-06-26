@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 
 import GeneralTemplate from '../../components/templates/GeneralTemplate';
 import OrderDetail from '../../components/organisms/OrderDetail';
+import CustomButton from '../../components/atoms/CustomButton';
 
 import apiService from '../../services/api.services';
 
