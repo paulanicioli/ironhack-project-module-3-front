@@ -51,7 +51,9 @@ class OrderDetail extends Component {
     return (
       <div className="order-container">
         <div>
-          <h4>{this.props.order.business.name}</h4>
+          <h5 className="order-business-name">
+            {this.props.order.business.name}
+          </h5>
           <small>
             {new Date(this.props.order.createdAt).toLocaleDateString('pt-BR')}{' '}
             {new Date(this.props.order.createdAt).toLocaleTimeString('pt-BR', {

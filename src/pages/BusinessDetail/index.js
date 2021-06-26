@@ -121,8 +121,23 @@ class BusinessDetail extends Component {
             </Modal.Title>
           </Modal.Header>
           <Modal.Body>
-            Olá! Em breve você poderá contar com mais informações sobre{' '}
-            {this.state.business ? this.state.business.name : ''}{' '}
+            {this.state.business ? (
+              <div>
+                <h4>{this.state.business.name}</h4>
+                <h6>
+                  Horário de funcionamento:{' '}
+                  <span>{this.state.business.businessHours}</span>
+                </h6>
+                <h6>
+                  Telefone: <span>{this.state.business.phoneNumber}</span>
+                </h6>
+                <h6>
+                  Endereço: <span>{this.state.business.address.street}</span>
+                </h6>
+              </div>
+            ) : (
+              ''
+            )}
           </Modal.Body>
           <Modal.Footer>
             <CustomButton onClick={this.handleCloseModal}>Fechar</CustomButton>

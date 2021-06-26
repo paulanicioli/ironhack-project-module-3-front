@@ -24,7 +24,6 @@ class Orders extends Component {
       return (
         <>
           <OrderDetail order={element} key={element._id} />
-          <hr />
         </>
       );
     });
@@ -37,8 +36,10 @@ class Orders extends Component {
         user={this.props.user}
       >
         <div className="orders-container">
-          <h1>Meus pedidos</h1>
-          {this.state.orders ? this.renderAllOrders() : ''}
+          <h1 className="section-title">Meus pedidos</h1>
+          <div className="all-orders-container">
+            {this.state.orders ? this.renderAllOrders() : ''}
+          </div>
         </div>
       </GeneralTemplate>
     );

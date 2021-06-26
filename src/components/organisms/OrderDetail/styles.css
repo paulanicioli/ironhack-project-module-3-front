@@ -1,3 +1,11 @@
+.order-container {
+  margin: 10px 0;
+  box-sizing: border-box;
+  padding: 15px;
+  border-radius: 12px;
+  box-shadow: 0px 7px 29px 0px rgba(100, 100, 11, 0.2);
+}
+
 .order-container > div {
   display: flex;
   flex-direction: row;
@@ -35,4 +43,10 @@
 .order-item-info {
   font-size: 0.8rem;
   color: var(--custom-gray);
+}
+
+.order-business-name {
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: var(--custom-red);
 }
