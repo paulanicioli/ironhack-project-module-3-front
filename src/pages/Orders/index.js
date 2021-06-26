@@ -34,6 +34,10 @@ class Orders extends Component {
     });
   }
 
+  returnToCategories() {
+    this.props.history.push('/categories');
+  }
+
   render() {
     return (
       <GeneralTemplate
@@ -44,7 +48,16 @@ class Orders extends Component {
         <div className="orders-container">
           <h1 className="section-title">Meus pedidos</h1>
           <div className="all-orders-container">
-            {this.state.orders ? this.renderAllOrders() : ''}
+            {this.state.orders ? (
+              this.renderAllOrders()
+            ) : (
+              <>
+                <h3>Você ainda não realizou nenhum pedido com a gente ;(</h3>
+                <CustomButton onClick={this.returnToCategories}>
+                  Retornar ao menu de categorias
+                </CustomButton>{' '}
+              </>
+            )}
           </div>
         </div>
       </GeneralTemplate>
