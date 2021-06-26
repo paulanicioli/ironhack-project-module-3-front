@@ -7,8 +7,9 @@
 }
 
 .home-description {
-  flex-basis: 50%;
+  /* flex-basis: 50%; */
   background-color: var(--custom-blue);
+  height: 90vh;
 }
 
 .home-description h1 {
@@ -48,10 +49,55 @@
 }
 
 .reviews-container {
+  position: relative;
   background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
     url('../../utils/images/home-background.jpg');
   background-position: center;
   background-size: cover;
   box-sizing: border-box;
   padding: 20px 0;
+}
+
+.carousel {
+  margin-bottom: 20px;
+  position: absolute;
+  height: 100vh;
+}
+
+.carousel-inner,
+.image-container.carousel-item {
+  height: 90vh;
+  width: 100%;
+}
+
+.index-btn-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.index-btn-container button {
+  width: 130px;
+}
+
+.carousel-caption {
+  bottom: 20%;
+  height: 60%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+}
+
+.carousel-caption span {
+  margin-bottom: 15px;
+}
+
+.carousel-caption button {
+  display: inline;
+  margin: 0 5px;
+}
+
+.carousel-btn-container {
+  display: block;
 }

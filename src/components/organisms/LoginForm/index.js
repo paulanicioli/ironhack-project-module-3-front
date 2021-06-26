@@ -1,6 +1,7 @@
 
 import React, { Component } from 'react';
-import { Grid, TextField,Typography,Link } from '@material-ui/core'
+import { Link } from 'react-router-dom';
+import { Grid, TextField,Typography } from '@material-ui/core'
 //import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import { Formik, Form } from 'formik';
@@ -104,7 +105,7 @@ class LoginForm extends Component {
                             <br />
                                         
                             <Typography > Ainda não tem uma conta?
-                                <Link href="/Signup" >
+                                <Link to="/signup">
                                     <br/>
                                         Cadastre-se
                                 </Link>

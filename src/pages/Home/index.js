@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
 import GeneralTemplate from '../../components/templates/GeneralTemplate';
 import CustomButton from '../../components/atoms/CustomButton';
+import ShadedButton from '../../components/atoms/ShadedButton';
 import Testimonial from '../../components/organisms/Testimonial';
 
 import { Link } from 'react-router-dom';
 
 import Carousel from 'react-bootstrap/Carousel';
+import Button from 'react-bootstrap/Button';
 
 import Logo from '../../utils/images/listo.png';
 import card1 from '../../utils/images/card1.jpg';
@@ -48,23 +50,27 @@ class Home extends Component {
             <Carousel
               activeIndex={this.state.index}
               onSelect={this.handleSelect}
+              nextLabel=''
+              prevLabel=''
             >
-              <Carousel.Item onClick={() => this.sendToCategories()}>
+              <Carousel.Item onClick={() => this.sendToCategories()} className="image-container">
                 <img
                   className="d-block w-100 blue-layer"
                   src={card1}
                   alt="First slide"
+                  fluid
                 />
                 <Carousel.Caption>
                   <h3 className="carousel-title">Search</h3>
                   <p>A busca por serviços e produtos evoluiu.</p>
                 </Carousel.Caption>
               </Carousel.Item>
-              <Carousel.Item>
+              <Carousel.Item className="image-container">
                 <img
                   className="d-block w-100 blue-layer"
                   src="https://image.freepik.com/free-photo/central-business-district-singapore_335224-642.jpg"
                   alt="Second slide"
+                  fluid
                 />
 
                 <Carousel.Caption>
@@ -74,24 +80,45 @@ class Home extends Component {
                   </p>
                 </Carousel.Caption>
               </Carousel.Item>
-              <Carousel.Item>
+              <Carousel.Item className="image-container">
                 <img
                   className="d-block w-100 blue-layer"
                   src={card3}
                   alt="Third slide"
+                  fluid
                 />
 
                 <Carousel.Caption>
+                <br />
+                  <div>
                   <h3 className="carousel-title">Evolve</h3>
                   <p>
                     A evolução que une aqueles que buscam com aqueles que
                     oferecem.
                   </p>
+                  </div>
                 </Carousel.Caption>
               </Carousel.Item>
+
+              {/* <Carousel.Item onClick={() => this.sendToCategories()} className="image-container">
+                <img
+                  className="d-block w-100 blue-layer"
+                  src={card1}
+                  alt="Forth slide"
+                  fluid
+                />
+                <Carousel.Caption>
+                  <h3 className="carousel-title">Join!</h3>
+                  <div><Button variant="outline-light" sz="sm" as={Link} to="/login">Entre</Button>  
+                      <Button variant="outline-light" sz="sm" as={Link} to="/signup">Cadastre-se</Button>
+                      para fazer parte dessa experiência.
+                  </div>
+                </Carousel.Caption>
+              </Carousel.Item> */}
             </Carousel>
             {/* <img src={Logo} className="logo-home-page" /> */}
           </div>
+         
           <div className="reviews-container">
             <h4 className="testimonial-title">
               Veja o que nossos clientes tem a dizer:

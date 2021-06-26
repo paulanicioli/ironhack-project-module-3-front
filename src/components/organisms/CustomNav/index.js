@@ -73,7 +73,7 @@ class CustomNav extends Component {
               <Nav.Link as={Link} className="nav-center" to="/categories">
                 Categorias
               </Nav.Link>
-              <Nav.Link>Meus pedidos</Nav.Link>
+              <Nav.Link as={Link} to="/orders">Meus pedidos</Nav.Link>
               <LogoutButton updateUserState={this.props.updateUserState} />
               {/* <NavDropdown title="Meu Perfil" id="basic-nav-dropdown">
                 <NavDropdown.Item as={Link} to="/my-profile">
