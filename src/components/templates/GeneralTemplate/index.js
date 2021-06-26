@@ -7,10 +7,16 @@ class GeneralTemplate extends Component {
   }
 
   render() {
-    return <div>
-      <CustomNav updateUserState={this.props.updateUserState} user={this.props.user}/>
-      {this.props.children}
-    </div>;
+    return (
+      <div>
+        <CustomNav
+          updateUserState={this.props.updateUserState}
+          user={this.props.user}
+          productsInCart={this.props.productsInCart}
+        />
+        {this.props.children}
+      </div>
+    );
   }
 }
 

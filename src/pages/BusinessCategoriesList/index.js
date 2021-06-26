@@ -18,9 +18,22 @@ class BusinessCategoriesList extends Component {
     this.setState({ categories: categoriesList });
   }
 
+  itemsInCart() {
+    const order = localStorage.getItem('order');
+    if (order) {
+      const orderArray = JSON.parse(order);
+      return orderArray.length;
+    }
+    return 0;
+  }
+
   render() {
     return (
-      <GeneralTemplate updateUserState={this.props.updateUserState} user={this.props.user}>
+      <GeneralTemplate
+        updateUserState={this.props.updateUserState}
+        user={this.props.user}
+        productsInCart={this.itemsInCart()}
+      >
         <h1 className="section-title">Escolha a categoria</h1>
         <p className="section-subtitle">
           Seus pedidos a um clique de distância

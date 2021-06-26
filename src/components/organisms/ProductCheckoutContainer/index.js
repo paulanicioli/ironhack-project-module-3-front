@@ -72,7 +72,7 @@ class ProductCheckoutContainer extends Component {
             product={this.props.product}
             getComment={this.updateComment}
           />
-          <h6>{this.formattedPrice(this.state.subtotalPrice)}</h6>
+          <h5>{this.formattedPrice(this.state.subtotalPrice)}</h5>
         </div>
         <a className="remove-item-anchor" onClick={this.removeItem}>
           <span>Remover</span> <ArchiveFill />

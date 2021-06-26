@@ -10,6 +10,8 @@ import LogoutButton from '../../atoms/LogoutButton';
 
 import logo from '../../../utils/images/listo.png';
 
+import Badge from 'react-bootstrap/Badge';
+
 import { Cart4 } from 'react-bootstrap-icons';
 
 import './style.css';
@@ -17,6 +19,21 @@ import './style.css';
 class CustomNav extends Component {
   constructor(props) {
     super(props);
+    this.state = { productsInCart: 0 };
+  }
+
+  componentDidMount() {
+    const order = localStorage.getItem('order');
+    if (order) {
+      const orderArray = JSON.parse(order);
+      this.setState({ productsInCart: orderArray.length });
+    }
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.productsInCart !== this.state.productsInCart) {
+      this.setState({ productsInCart: nextProps.productsInCart });
+    }
   }
 
   render() {
@@ -28,7 +45,18 @@ class CustomNav extends Component {
         {this.props.user.isUserLogged ? (
           <Nav className="justify-content-end">
             <Nav.Link as={Link} to="/checkout">
-              <Cart4 size={26} color="white" />
+              <div className="checkout-icon-container">
+                <Cart4 size={26} color="white" />
+                {this.state.productsInCart > 0 ? (
+                  <div className="checkout-badge">
+                    <Badge className="order-tracker">
+                      {this.state.productsInCart}
+                    </Badge>
+                  </div>
+                ) : (
+                  ''
+                )}
+              </div>
             </Nav.Link>
           </Nav>
         ) : (
@@ -37,7 +65,7 @@ class CustomNav extends Component {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav" align="end">
           {this.props.user.isUserLogged ? (
-            <Nav className="me-auto">
+            <Nav className="me-auto" variant="dark">
               <Nav.Link as={Link} className="nav-center" to="/">
                 Home
               </Nav.Link>

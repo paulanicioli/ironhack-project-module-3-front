@@ -16,7 +16,9 @@ class UserProtectedRoute extends React.Component {
     }
 
     if (user.role === 'user') {
-      return <Component {...rest} user={user} updateUserState={updateUserState} />;
+      return (
+        <Component {...rest} user={user} updateUserState={updateUserState} />
+      );
     }
 
     return <ErrorPage {...rest} />;

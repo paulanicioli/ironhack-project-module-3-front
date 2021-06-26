@@ -14,6 +14,15 @@ class Orders extends Component {
     this.state = {};
   }
 
+  itemsInCart() {
+    const order = localStorage.getItem('order');
+    if (order) {
+      const orderArray = JSON.parse(order);
+      return orderArray.length;
+    }
+    return 0;
+  }
+
   async componentDidMount() {
     const orders = await this.apiService.getOrders();
     this.setState({ orders: orders });
@@ -21,11 +30,7 @@ class Orders extends Component {
 
   renderAllOrders() {
     return this.state.orders.map((element) => {
-      return (
-        <>
-          <OrderDetail order={element} key={element._id} />
-        </>
-      );
+      return <OrderDetail order={element} key={element._id} />;
     });
   }
 
@@ -34,6 +39,7 @@ class Orders extends Component {
       <GeneralTemplate
         updateUserState={this.props.updateUserState}
         user={this.props.user}
+        productsInCart={this.itemsInCart()}
       >
         <div className="orders-container">
           <h1 className="section-title">Meus pedidos</h1>

@@ -113,6 +113,15 @@ class CheckOut extends Component {
     this.props.history.push('/categories');
   };
 
+  itemsInCart() {
+    const order = localStorage.getItem('order');
+    if (order) {
+      const orderArray = JSON.parse(order);
+      return orderArray.length;
+    }
+    return 0;
+  }
+
   renderAllProducts() {
     if (
       this.state.productsList[0] &&
@@ -120,7 +129,7 @@ class CheckOut extends Component {
     ) {
       return this.state.productsList.map((product, index) => {
         return (
-          <>
+          <div key={product._id}>
             <ProductCheckoutContainer
               key={product._id}
               product={product}
@@ -132,8 +141,8 @@ class CheckOut extends Component {
               updateQuantity={this.updateQuantity}
               updateComment={this.updateComment}
             />
-            <hr />
-          </>
+            {index < this.state.productsList.length - 1 ? <hr /> : ''}
+          </div>
         );
       });
     }
@@ -145,6 +154,7 @@ class CheckOut extends Component {
       <GeneralTemplate
         updateUserState={this.props.updateUserState}
         user={this.props.user}
+        productsInCart={this.itemsInCart()}
       >
         {this.state.productsList.length > 0 ? (
           <div className="checkout-container">

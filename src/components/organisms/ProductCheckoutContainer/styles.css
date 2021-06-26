@@ -31,7 +31,8 @@
   align-items: center;
 }
 
-.checkout-second-row-container h6 {
+.checkout-second-row-container h5 {
+  font-size: 1rem;
   margin: 0;
 }
 

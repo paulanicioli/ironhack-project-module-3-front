@@ -30,7 +30,6 @@ class BusinessListing extends Component {
             </div>
           </Container>
         </Link>
-        <hr />
       </div>
     );
   }

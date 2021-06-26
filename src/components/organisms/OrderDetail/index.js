@@ -18,7 +18,7 @@ class OrderDetail extends Component {
       <div>
         {this.props.order.products.map((element, index) => {
           return (
-            <h6 className="order-item-info">
+            <h6 className="order-item-info" key={element._id}>
               {element.name} {' x'} {this.props.order.quantities[index]}
             </h6>
           );

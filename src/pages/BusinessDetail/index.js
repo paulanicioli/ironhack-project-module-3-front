@@ -11,7 +11,10 @@ import './styles.css';
 class BusinessDetail extends Component {
   constructor(props) {
     super(props);
-    this.state = { show: false };
+    this.state = {
+      show: false,
+      productsInCart: this.itemsInCart(),
+    };
     this.apiService = apiService;
   }
 
@@ -20,7 +23,20 @@ class BusinessDetail extends Component {
     const businessInfo = await this.apiService.getBusinessDetail(businessId);
     const productCategories = this.aggregateByCategories(businessInfo.products);
     businessInfo.productCategories = productCategories;
-    this.setState({ ...businessInfo, show: this.state.show });
+    this.setState({
+      ...businessInfo,
+      show: this.state.show,
+      productsInCart: this.state.productsInCart,
+    });
+  }
+
+  itemsInCart() {
+    const order = localStorage.getItem('order');
+    if (order) {
+      const orderArray = JSON.parse(order);
+      return orderArray.length;
+    }
+    return 0;
   }
 
   aggregateByCategories(products) {
@@ -54,10 +70,17 @@ class BusinessDetail extends Component {
         previousOrderArray[productInArrayIndex].comment = partialOrder.comment;
       } else {
         previousOrderArray.push(partialOrder);
+        this.setState({
+          ...this.state,
+          productsInCart: this.state.productsInCart + 1,
+        });
+        console.log(this.state);
       }
       localStorage.setItem('order', JSON.stringify(previousOrderArray));
     } else {
       localStorage.setItem('order', JSON.stringify([partialOrder]));
+      this.setState({ ...this.state, productsInCart: 1 });
+      console.log(this.state);
     }
   };
 
@@ -97,6 +120,7 @@ class BusinessDetail extends Component {
       <GeneralTemplate
         updateUserState={this.props.updateUserState}
         user={this.props.user}
+        productsInCart={this.state.productsInCart}
       >
         <img
           className="business-detail-image"
@@ -122,8 +146,7 @@ class BusinessDetail extends Component {
           </Modal.Header>
           <Modal.Body>
             {this.state.business ? (
-              <div>
-                <h4>{this.state.business.name}</h4>
+              <div className="business-info-modal">
                 <h6>
                   Horário de funcionamento:{' '}
                   <span>{this.state.business.businessHours}</span>
@@ -132,7 +155,11 @@ class BusinessDetail extends Component {
                   Telefone: <span>{this.state.business.phoneNumber}</span>
                 </h6>
                 <h6>
-                  Endereço: <span>{this.state.business.address.street}</span>
+                  Endereço:{' '}
+                  <span>
+                    {this.state.business.street}, {this.state.business.city} -{' '}
+                    {this.state.business.state}{' '}
+                  </span>
                 </h6>
               </div>
             ) : (

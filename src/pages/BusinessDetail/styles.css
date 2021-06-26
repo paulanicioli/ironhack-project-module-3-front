@@ -43,3 +43,11 @@
   display: flex;
   justify-content: center;
 }
+
+.business-info-modal h6 {
+  font-weight: bold;
+}
+
+.business-info-modal h6 span {
+  font-weight: normal;
+}
