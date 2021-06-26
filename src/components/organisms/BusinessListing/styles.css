@@ -9,7 +9,8 @@
 
 .business-image {
   height: 10vh;
-  object-fit: fill;
+  width: 30vw;
+  object-fit: cover;
   margin-right: 10px;
 }
 

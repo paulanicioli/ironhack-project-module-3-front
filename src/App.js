@@ -1,6 +1,9 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 import { Switch, Route } from 'react-router-dom';
+
+import 'bootstrap/dist/css/bootstrap.min.css';
+import './App.css';
 
 import Home from './pages/Home';
 import Login from './pages/Login';
@@ -15,9 +18,6 @@ import ErrorPage from './pages/ErrorPage';
 
 import UserProtectedRoute from './protectedRoutes/userProtectedRoutes';
 import BusinessManagerProtectedRoute from './protectedRoutes/businessManagerProtectedRoutes';
-
-import 'bootstrap/dist/css/bootstrap.min.css';
-import './App.css';
 
 class App extends React.Component {
   constructor() {

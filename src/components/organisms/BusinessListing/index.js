@@ -26,9 +26,7 @@ class BusinessListing extends Component {
             <div className="business-info">
               <h3>{this.props.name}</h3>
               <small>{this.props.street}</small>
-              <small>
-                Horário de funcionamento: {this.props.businessHours}
-              </small>
+              <small>Funcionamento: {this.props.businessHours}</small>
             </div>
           </Container>
         </Link>
