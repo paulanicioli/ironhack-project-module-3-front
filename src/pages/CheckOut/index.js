@@ -149,7 +149,7 @@ class CheckOut extends Component {
         {this.state.productsList.length > 0 ? (
           <div className="checkout-container">
             <h4>Seu pedido em {this.state.productsList[0].business.name}:</h4>
-            {this.renderAllProducts()}
+            <div className="order-all-products">{this.renderAllProducts()}</div>
             <h5 className="total-price">
               Total: {this.formattedPrice(this.state.price)}
             </h5>
