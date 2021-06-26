@@ -46,9 +46,9 @@ class apiService {
   };
 
   logoutUser = async () => {
-    localStorage.removeItem('token');
-    localStorage.removeItem('role');
-
+    // localStorage.removeItem('token');
+    // localStorage.removeItem('role');
+    localStorage.clear()
     // window.location.href = '/';
   };
 
