@@ -171,7 +171,7 @@ class BusinessDetail extends Component {
           </Modal.Footer>
         </Modal>
         <div className="business-menu">
-          <h1 className="section-title centered-title">Cardápio</h1>
+          <h1 className="section-title centered-title">Produtos</h1>
           <hr />
           {this.state.productCategories ? this.renderProductCategories() : ''}
           <div className="centered-checkout-button">
