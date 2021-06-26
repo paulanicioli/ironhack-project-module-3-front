@@ -8,11 +8,24 @@
   font-weight: bold;
   font-size: 1.5rem;
   color: var(--custom-blue);
-  margin: 5px 15px;
+  margin: 20px 15px;
 }
 
 .section-subtitle {
   font-style: italic;
   color: var(--custom-yellow);
   margin: 0 15px;
+}
+
+.search-radius-container {
+  margin-bottom: 1rem;
+}
+
+#search-radius {
+  margin-left: 5px;
+  padding: 0;
+  outline: none;
+  line-height: 24px;
+  font-size: .9rem;
+  /* border: .5px solid gray; */
 }

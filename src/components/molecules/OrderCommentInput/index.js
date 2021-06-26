@@ -71,15 +71,18 @@ class CommentInput extends Component {
       <div className="order-comment-container">
         <h6>
           {this.state.comment
-            ? `Comentário:  ${this.state.comment}`
-            : 'Nenhum comentário adicionado'}
+            ? `Comentário:  ${this.state.comment} `
+            : 'Nenhum comentário adicionado '}
+          <span>
+          <PencilSquare
+            size={15}
+            onClick={() =>
+              this.setState({ comment: this.state.comment, editing: true })
+            }
+          />
+          </span>
         </h6>
-        <PencilSquare
-          size={20}
-          onClick={() =>
-            this.setState({ comment: this.state.comment, editing: true })
-          }
-        />
+        
       </div>
     );
   }

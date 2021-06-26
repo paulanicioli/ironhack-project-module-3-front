@@ -75,7 +75,7 @@ class ProductCheckoutContainer extends Component {
           <h5>{this.formattedPrice(this.state.subtotalPrice)}</h5>
         </div>
         <a className="remove-item-anchor" onClick={this.removeItem}>
-          <span>Remover</span> <ArchiveFill />
+          <span>Remover</span> <ArchiveFill/>
         </a>
       </div>
     );

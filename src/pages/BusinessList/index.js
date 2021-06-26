@@ -140,24 +140,26 @@ class BusinessList extends Component {
           <p className="section-subtitle">
             Seus pedidos a um clique de distância
           </p>
-          <Modal show={this.state.showModal} backdrop="static" keyboard={false}>
+          <Modal show={this.state.showModal} backdrop="static" keyboard={false} id="search-localization-modal">
             <Modal.Header>
               <Modal.Title>Local de referência</Modal.Title>
               {/* <XLg onClick={this.closeModal}/> */}
             </Modal.Header>
             <Modal.Body>
               <p>Ajude-nos a encontrar os negócios mais próximos de você.</p>
-              <label htmlFor="search-radius">Raio de busca: </label>
-              <select
-                id="search-radius"
-                value={this.state.searchRadius}
-                onChange={(e) => this.handleSelection(e)}
-              >
-                <option>1km</option>
-                <option selected>3km</option>
-                <option>5km</option>
-                <option>10km</option>
-              </select>
+              <div className="search-radius-container">
+                <label htmlFor="search-radius">Raio de busca: </label>
+                <select
+                  id="search-radius"
+                  value={this.state.searchRadius}
+                  onChange={(e) => this.handleSelection(e)}
+                >
+                  <option>1km</option>
+                  <option selected>3km</option>
+                  <option>5km</option>
+                  <option>10km</option>
+                </select>
+              </div>
               <div>
                 <LocationSearchInput
                   setCoordinates={this.setCoordinates}
