@@ -30,7 +30,6 @@ class Orders extends Component {
   }
 
   renderAllOrders() {
-    console.log('this.state.orders: ', this.state.orders);
     if (this.state.orders && this.state.orders.length > 0) {
       return this.state.orders.map((element) => {
         return <OrderDetail order={element} key={element._id} />;
@@ -59,9 +58,7 @@ class Orders extends Component {
       >
         <div className="orders-container">
           <h1 className="section-title">Meus pedidos</h1>
-          <div className="all-orders-container">
-            {this.state.orders ? this.renderAllOrders() : ''}
-          </div>
+          <div className="all-orders-container">{this.renderAllOrders()}</div>
         </div>
       </GeneralTemplate>
     );
