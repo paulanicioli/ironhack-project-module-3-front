@@ -29,9 +29,19 @@ class Orders extends Component {
   }
 
   renderAllOrders() {
-    return this.state.orders.map((element) => {
-      return <OrderDetail order={element} key={element._id} />;
-    });
+    if (this.state.orders && this.state.orders.length > 0) {
+      return this.state.orders.map((element) => {
+        return <OrderDetail order={element} key={element._id} />;
+      });
+    }
+    return (
+      <>
+        <h3>Você ainda não realizou nenhum pedido com a gente ;(</h3>
+        <CustomButton onClick={this.returnToCategories}>
+          Retornar ao menu de categorias
+        </CustomButton>{' '}
+      </>
+    );
   }
 
   returnToCategories() {
@@ -48,16 +58,7 @@ class Orders extends Component {
         <div className="orders-container">
           <h1 className="section-title">Meus pedidos</h1>
           <div className="all-orders-container">
-            {this.state.orders ? (
-              this.renderAllOrders()
-            ) : (
-              <>
-                <h3>Você ainda não realizou nenhum pedido com a gente ;(</h3>
-                <CustomButton onClick={this.returnToCategories}>
-                  Retornar ao menu de categorias
-                </CustomButton>{' '}
-              </>
-            )}
+            {this.state.orders ? this.renderAllOrders() : ''}
           </div>
         </div>
       </GeneralTemplate>
