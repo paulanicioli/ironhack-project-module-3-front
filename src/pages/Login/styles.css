@@ -49,3 +49,30 @@
   right: -20%;
   align-items: flex-end;
 }
+
+.right-side:hover {
+  /* right: -45%; */
+}
+
+
+/* Button */
+.btn {
+  /* font-size: 21px;
+  padding: 5px 20px;
+  border: 0;
+  background-color: var(--custom-blue);
+  color: #fff;
+  border-radius: 3px;
+  transition: all 250ms ease-in-out;
+  cursor: pointer; */
+  
+}
+
+.btn:hover {
+  /* background-color: #aa9e93; */
+}
+
+.btn:focus {
+  /* outline: none; */
+}
+

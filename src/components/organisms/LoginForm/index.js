@@ -9,10 +9,7 @@ import CustomButton from '../../atoms/CustomButton';
 import * as Yup from 'yup';
 import Textfield from '../../atoms/FormUI/TextField';
 
-
-
 import './styles.css';
-
 
 class LoginForm extends Component {
     constructor(props) {
