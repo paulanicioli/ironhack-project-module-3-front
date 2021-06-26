@@ -1,19 +1,14 @@
 import React, { Component } from 'react';
-//import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
 import { Formik, Form } from 'formik';
-import Checkbox from '@material-ui/core/Checkbox';
-import CustomButton from '../../atoms/CustomButton';
 import * as Yup from 'yup';
-import Textfield from '../../atoms/FormUI/TextField';
 import {
     Container,
     Grid,
     Typography,
   } from '@material-ui/core';
-  import Select from '../../atoms/FormUI/Select';
-
-
+import Textfield from '../../atoms/FormUI/TextField';
+import Select from '../../atoms/FormUI/Select';
+import CustomButton from '../../atoms/CustomButton';
 
 import './style.css';
 
@@ -49,13 +44,17 @@ class SignUpForm extends Component {
       phoneNumber: Yup.string()
         .matches(/^\(?[1-9]{2}\)? ?(?:[2-8]|9[1-9])[0-9]{3}\-?[0-9]{4}$/, 'Formato inválido'),
       street: Yup.string()
-        .trim(),
+        .trim()
+        .required('Campo obrigatório'),
       city: Yup.string()
-        .trim(),
+        .trim()
+        .required('Campo obrigatório'),
       state: Yup.string()
-        .trim(),
+        .trim()
+        .required('Campo obrigatório'),
       zipCode: Yup.string()
-        .matches(/[0-9]{5}-[\d]{3}/, 'CEP inválido'),
+        .matches(/[0-9]{5}-[\d]{3}/, 'CEP inválido')
+        .required('Campo obrigatório'),
       password: Yup.string()
         .trim()
         .min(6, 'Mínimo de 6 caracteres')
@@ -63,6 +62,7 @@ class SignUpForm extends Component {
         .required('Campo obrigatório'),
       passwordConfirmation:  Yup.string()
         .oneOf([Yup.ref('password'), null], 'As senhas devem ser iguais.')
+        .required('Campo obrigatório')
     })    
   }
 
@@ -77,7 +77,7 @@ class SignUpForm extends Component {
                   initialValues={this.initialValues}
                   validationSchema={this.formSchema}
                   onSubmit={values => {
-                    console.log(values);
+                    this.props.handleSignUp(values)
                   }}
                 >
                 {({
@@ -126,7 +126,7 @@ class SignUpForm extends Component {
                         />
                       </Grid>
 
-                      <Grid item xs={6}>
+                      <Grid item xs={12}>
                         <Textfield
                           controlId="SignUpFormEmail"
                           label='Email' 
@@ -242,7 +242,7 @@ class SignUpForm extends Component {
                         <Textfield
                           controlId="SignUpFormPasswordConfirmation"
                           name="passwordConfirmation"
-                          label="Confime sua senha" 
+                          label="Confimar senha" 
                           type="password"
                           value={values.passwordConfirmation}
                           handleChange={handleChange}
@@ -264,7 +264,7 @@ class SignUpForm extends Component {
                         />
                       </Grid>
 
-                      <Grid item xs={12}>
+                      <Grid item xs={12} align='center'>
                         <CustomButton>
                           Enviar
                         </CustomButton>
