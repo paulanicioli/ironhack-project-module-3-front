@@ -39,7 +39,7 @@ class CustomNav extends Component {
   render() {
     return (
       <Navbar sticky="top" expand="md" variant="dark">
-        <Navbar.Brand to="/">
+        <Navbar.Brand as={Link} to="/">
           <img className="logo-img" src={logo} alt="Listo" />
         </Navbar.Brand>
         {this.props.user.isUserLogged ? (

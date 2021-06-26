@@ -1,87 +1,57 @@
-.contain {
-  width: 100%;
-  height: 100vh;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
-    url('../../utils/images/home-background.jpg');
-  background-position: center;
-  background-size: cover;
-  padding: 0 8%;
-  box-sizing: border-box;
+.logo-home-page {
+  margin: 20px 0;
+  width: 80vw;
+  height: auto;
+  display: fle;
+  justify-content: center;
 }
 
-.menu-icon {
-  width: 30px;
-  cursor: pointer;
-  margin-left: 40px;
-}
-
-.col {
+.home-description {
   flex-basis: 50%;
+  background-color: var(--custom-blue);
 }
 
-.col h1 {
+.home-description h1 {
   color: #fff;
   font-size: 100px;
   font-family: 'Roboto', sans-serif;
 }
 
-.col p {
+.home-description p {
   color: #fff;
   font-size: 15px;
   line-height: 15px;
   font-family: 'Roboto', sans-serif;
 }
 
-.button {
-  width: 180px;
-  color: #000;
-  font-size: 12px;
-  padding: 12px 0;
-  background: #fff;
-  border: 0;
-  border-radius: 20px;
-  outline: none;
-  margin-top: 30px;
-  font-family: 'Roboto', sans-serif;
+.categories-explorer {
+  display: flex;
+  justify-content: center;
 }
 
-.card {
-  width: 200px;
-  height: 230px;
-  float: left;
-  border-radius: 10px;
-  padding: 15px 25px;
-  box-sizing: border-box;
-  cursor: pointer;
-  margin: 10px 15px;
+.testimonial-title {
+  color: #fff;
+  text-align: center;
+  font-weight: bold;
+}
+
+.carousel-title {
+  font-weight: bold;
+  color: #fff;
+}
+
+.blue-layer {
+  width: 100%;
+  height: 100%;
+  background-color: var(--custom-blue);
+  opacity: 0.5;
+}
+
+.reviews-container {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+    url('../../utils/images/home-background.jpg');
   background-position: center;
   background-size: cover;
-  transition: transform 0.5s;
-}
-
-.card:hover {
-  transform: translateY(-10px);
-}
-
-.card h5 {
-  color: #fff;
-  text-shadow: 0 0 5px #999;
-}
-
-.card1 {
-  background-image: url('../../utils/images/card1.jpg');
-}
-.card2 {
-  background-image: url('../../utils/images/card2.jpg');
-}
-.card3 {
-  background-image: url('../../utils/images/card3.jpg');
-}
-.card4 {
-  background-image: url('../../utils/images/card4.jpg');
-}
-.card p {
-  color: #fff;
-  font-size: 8px;
-  font-family: 'Roboto', sans-serif;
+  box-sizing: border-box;
+  padding: 20px 0;
 }

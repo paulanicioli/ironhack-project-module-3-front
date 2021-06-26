@@ -48,8 +48,9 @@ class App extends React.Component {
           <Route
             exact
             path="/"
-            render={() => (
+            render={(props) => (
               <Home
+                {...props}
                 updateUserState={this.updateUserState}
                 user={this.state.user}
               />
