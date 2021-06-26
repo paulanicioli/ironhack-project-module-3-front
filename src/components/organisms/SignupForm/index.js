@@ -94,7 +94,7 @@ class SignUpForm extends Component {
 
                       <Grid item xs={12}>
                         <Typography>
-                          Informaçoes Pessoais
+                          Informações Pessoais
                         </Typography>
                       </Grid>
 

@@ -101,10 +101,10 @@ class LoginForm extends Component {
                         
                             <CustomButton>Entrar</CustomButton>
                                         
-                            <Typography > Já possui sua conta?
+                            <Typography > Ainda não tem uma conta?
                                 <Link href="/Signup" >
-                                    <br></br>
-                                        Cadastrar 
+                                    <br/>
+                                        Cadastre-se
                                 </Link>
                             </Typography>
                         </Grid>            
