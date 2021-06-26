@@ -30,6 +30,7 @@ class Orders extends Component {
   }
 
   renderAllOrders() {
+    console.log('this.state.orders: ', this.state.orders);
     if (this.state.orders && this.state.orders.length > 0) {
       return this.state.orders.map((element) => {
         return <OrderDetail order={element} key={element._id} />;
