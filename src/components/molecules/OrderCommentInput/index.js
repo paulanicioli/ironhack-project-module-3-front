@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Form from 'react-bootstrap/Form';
 
-import { PencilFill } from 'react-bootstrap-icons';
+import { PencilSquare } from 'react-bootstrap-icons';
 import { CheckCircleFill } from 'react-bootstrap-icons';
 
 import './styles.css';
@@ -74,7 +74,7 @@ class CommentInput extends Component {
             ? `Comentário:  ${this.state.comment}`
             : 'Nenhum comentário adicionado'}
         </h6>
-        <PencilFill
+        <PencilSquare
           size={20}
           onClick={() =>
             this.setState({ comment: this.state.comment, editing: true })
