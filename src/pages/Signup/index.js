@@ -8,11 +8,14 @@ class Signup extends Component {
     super(props);
   }
 
+  handleSignUp = async (data) => {
+    console.log(data)
+  }
+
   render() {
-    console.log(this.props)
     return (
       <GeneralTemplate updateUserState={this.props.updateUserState} user={this.props.user}>
-        <SignupForm />
+        <SignupForm handleSignUp={this.handleSignUp}/>
       </GeneralTemplate>
     );
   }
