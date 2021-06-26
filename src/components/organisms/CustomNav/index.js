@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
 import NavDropdown from 'react-bootstrap/NavDropdown';
+import Button from 'react-bootstrap/Button';
 
 import CustomButton from '../../atoms/CustomButton';
 import LogoutButton from '../../atoms/LogoutButton';
@@ -89,9 +90,21 @@ class CustomNav extends Component {
               </NavDropdown>
             </Nav>
           ) : (
-            <Link to="/login">
-              <CustomButton>Login</CustomButton>
-            </Link>
+            <div className="nav-auth-btn-group">
+              <div>
+                <Button variant="secondary" sz="sm" as={Link} to="/login" id="nav-login-btn">
+                  Entre
+                </Button>
+              </div>
+              <span>ou</span>
+              <div>
+              <Button variant="light" sz="sm" as={Link} to="/signup" id="nav-signup-btn">
+                Cadastre-se
+              </Button>
+
+              </div>
+            </div>
+           
           )}
         </Navbar.Collapse>
       </Navbar>
