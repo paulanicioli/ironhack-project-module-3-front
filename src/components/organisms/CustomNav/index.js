@@ -10,6 +10,8 @@ import LogoutButton from '../../atoms/LogoutButton';
 
 import logo from '../../../utils/images/listo.png';
 
+import { Cart4 } from 'react-bootstrap-icons';
+
 import './style.css';
 
 class CustomNav extends Component {
@@ -23,6 +25,11 @@ class CustomNav extends Component {
         <Navbar.Brand to="/">
           <img className="logo-img" src={logo} alt="Listo" />
         </Navbar.Brand>
+        <Nav className="justify-content-end">
+          <Nav.Link as={Link} to="/checkout">
+            <Cart4 size={26} color="white" />
+          </Nav.Link>
+        </Nav>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav" align="end">
           {this.props.user.isUserLogged ? (

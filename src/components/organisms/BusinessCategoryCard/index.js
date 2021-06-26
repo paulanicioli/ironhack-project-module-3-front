@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import Card from 'react-bootstrap/Card';
 import { Link } from 'react-router-dom';
 
 import './styles.css';
@@ -15,15 +14,14 @@ class BusinessCategoryCard extends Component {
         to={`/categories/${this.props.categoryId}`}
         className="category-url"
       >
-        <Card className="category-container text-center">
-          <Card.Img
-            variant="top"
+        <div className="category-container text-center">
+          <img
             className="card-image"
             src={this.props.imageUrl}
             alt={this.props.name}
           />
-          <Card.Title className="category-title">{this.props.name}</Card.Title>
-        </Card>
+          <h4 className="category-title">{this.props.name}</h4>
+        </div>
       </Link>
     );
   }

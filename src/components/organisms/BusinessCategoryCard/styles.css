@@ -1,5 +1,5 @@
 .card-image {
-  width: 35vw;
+  width: 30vw;
   object-fit: cover;
 }
 
@@ -21,4 +21,13 @@
   width: 40vw;
   border-radius: 10px;
   box-shadow: 5px 5px 10px var(--custom-gray);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.category-container h4 {
+  margin-top: 10px;
+  margin-bottom: 0;
 }
