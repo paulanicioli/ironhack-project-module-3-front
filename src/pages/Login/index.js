@@ -46,7 +46,7 @@ class Login extends Component {
         user={this.props.user}
       >
       
-        <div className="form-content">
+        <div className="login-form-container">
           <LoginForm handleLogin={this.handleLogin} />
           
         </div>

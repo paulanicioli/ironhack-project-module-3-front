@@ -31,7 +31,7 @@ class LoginForm extends Component {
     
     render(){    
         return(
-            <div className="style">
+            <div className="login-form">
                 <Formik 
                     initialValues={{ email: '', password: '' }}
                     onSubmit={(info) => {
