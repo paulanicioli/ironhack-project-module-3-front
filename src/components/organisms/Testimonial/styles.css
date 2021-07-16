@@ -39,3 +39,21 @@
   font-style: italic;
   text-align: justify;
 }
+
+@media only screen and (min-width: 768px) {
+  .testimonial-container {
+    width: 45%;
+    margin: 20px auto;
+  }
+
+  .testimonial-container:nth-child(odd) {
+    /* margin-left: auto; */
+    /* border: 3px solid red; */
+    /* align-self: flex-end; */
+  }
+
+  .testimonial-picture {
+    width: 10vw;
+    height: 10vw;
+  }
+}

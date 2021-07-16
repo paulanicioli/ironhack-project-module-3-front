@@ -11,6 +11,8 @@ import Button from 'react-bootstrap/Button';
 
 import Logo from '../../utils/images/listo.png';
 import card1 from '../../utils/images/card1.jpg';
+import card2 from '../../utils/images/card2.jpg';
+
 import card3 from '../../utils/images/card3.jpg';
 
 import './styles.css';
@@ -37,16 +39,6 @@ class Home extends Component {
       >
         <div className="home-container">
           <div className="home-description">
-            {/* <p>
-              A busca por serviços e produtos evoluiu. Nossa geração está em
-              busca de experiências e aventuras. LISTO! A evolução que une
-              aqueles que buscam com aqueles que oferecem. Search. Check it out.
-              Evolve.
-            </p>
-            <Link className="categories-explorer" to="/categories">
-              <CustomButton>Explorar categorias</CustomButton>
-            </Link> */}
-
             <Carousel
               activeIndex={this.state.index}
               onSelect={this.handleSelect}
@@ -68,7 +60,7 @@ class Home extends Component {
               <Carousel.Item className="image-container">
                 <img
                   className="d-block w-100 blue-layer"
-                  src="https://image.freepik.com/free-photo/central-business-district-singapore_335224-642.jpg"
+                  src={card2}
                   alt="Second slide"
                   fluid
                 />
@@ -116,14 +108,13 @@ class Home extends Component {
                 </Carousel.Caption>
               </Carousel.Item> */}
             </Carousel>
-            {/* <img src={Logo} className="logo-home-page" /> */}
           </div>
          
           <div className="reviews-container">
             <h4 className="testimonial-title">
               Veja o que nossos clientes tem a dizer:
             </h4>
-
+            <div className="testimonials-outer-container">
             <Testimonial
               name="Felipe Silveira"
               imageUrl="https://image.freepik.com/free-photo/attractive-laughing-guy-having-fun-smiling-happy_176420-18839.jpg"
@@ -142,6 +133,7 @@ class Home extends Component {
               role="Empreendedor de vestuário na LéV! em São Paulo"
               quote="Encontrar o cliente certo é extremamente desgastante. Bati a cabeça por muito tempo sozinho. E então eu conheci a Listo! E foi tudo muito fluido."
             />
+            </div>
           </div>
         </div>
       </GeneralTemplate>
