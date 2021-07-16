@@ -39,7 +39,7 @@ class CustomNav extends Component {
 
   render() {
     return (
-      <Navbar sticky="top" expand="md" variant="dark">
+      <Navbar sticky="top" expand="md" variant="dark" id="general-navbar">
         <Navbar.Brand as={Link} to="/">
           <img className="logo-img" src={logo} alt="Listo" />
         </Navbar.Brand>
@@ -66,6 +66,7 @@ class CustomNav extends Component {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav" align="end">
           {this.props.user.isUserLogged ? (
+            <div id="nav-menu-uncollapsed">
             <Nav className="me-auto" variant="dark">
               <Nav.Link as={Link} className="nav-center" to="/">
                 Home
@@ -73,24 +74,24 @@ class CustomNav extends Component {
               <Nav.Link as={Link} className="nav-center" to="/categories">
                 Categorias
               </Nav.Link>
-              <Nav.Link as={Link} to="/orders">Meus pedidos</Nav.Link>
-              <LogoutButton updateUserState={this.props.updateUserState} />
-              {/* <NavDropdown title="Meu Perfil" id="basic-nav-dropdown">
-                <NavDropdown.Item as={Link} to="/my-profile">
-                  Editar meu perfil
-                </NavDropdown.Item>
-                <NavDropdown.Item as={Link} to="/checkout">
-                  Meu carrinho
-                </NavDropdown.Item>
-                <NavDropdown.Item as={Link} to="/orders">
-                 Meus pedidos
-                </NavDropdown.Item>
-                <NavDropdown.Divider />
-                <NavDropdown.Item>
-                  <LogoutButton updateUserState={this.props.updateUserState} />
-                </NavDropdown.Item>
-              </NavDropdown> */}
+              <Nav.Link as={Link} to="/orders" className="nav-center">Meus pedidos</Nav.Link>
+              <Nav.Link as={Link} to="/checkout" className="checkout-icon-container expanded">
+                <span>Carrinho</span>
+                {this.state.productsInCart > 0 ? (
+                  <span className="checkout-badge">
+                    <Badge className="order-tracker">
+                      {this.state.productsInCart}
+                    </Badge>
+                  </span>
+                ) : (
+                  ''
+                )}
+            </Nav.Link>
+              
+              
             </Nav>
+              <LogoutButton updateUserState={this.props.updateUserState} />
+              </div>
           ) : (
             <div className="nav-auth-btn-group">
               <div>
@@ -98,7 +99,6 @@ class CustomNav extends Component {
                   Entre
                 </Button>
               </div>
-              <span>ou</span>
               <div>
               <Button variant="light" sz="sm" as={Link} to="/signup" id="nav-signup-btn">
                 Cadastre-se

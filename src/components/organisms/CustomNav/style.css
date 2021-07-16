@@ -14,10 +14,11 @@ nav,
 
 .checkout-icon-container {
   display: flex;
+  position: relative;
 }
 
-.checkout-icon-container {
-  position: relative;
+.checkout-icon-container.expanded {
+  display: none;
 }
 
 .checkout-badge {
@@ -49,6 +50,15 @@ nav,
   margin: 15px 30%;
 }
 
+.nav-auth-btn-group > div:first-child::after{
+  display: inline-block;
+  width: 100%;
+  content: 'ou';
+  text-align: center;
+  color: #fff;
+}
+
+
 .nav-auth-btn-group span {
   margin: 5px 0;
   display: block;
@@ -73,4 +83,54 @@ nav,
 #nav-logout-btn{
   width: 100px;
   margin-left: auto;
+}
+
+@media only screen and (min-width: 760px) {
+  #general-navbar {
+    display: grid;
+    grid-template: 1fr / 150px 1fr;
+    grid-template-areas: "brand end";
+  }
+
+  #nav-menu-uncollapsed {
+    width: 100%;
+    display: grid;
+    grid-template: 1fr / 1fr 150px;
+  }
+
+  .me-auto {
+    display: flex;
+  }
+
+ .justify-content-end.navbar-nav {
+   display: none;
+ }
+
+ .checkout-icon-container.expanded {
+   display: inline-flex;
+ }
+  
+  .nav-auth-btn-group {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin: 5px 15px;
+  }
+
+ #nav-login-btn {
+   margin-right: 10px;
+ }
+
+  .nav-auth-btn-group > div:first-child::after {
+    display: none;
+  }
+
+  .checkout-badge {
+    position: static;
+    margin-top: -5px;
+    width: 15px;
+    height: 15px;
+  }
+  
 }
