@@ -11,7 +11,7 @@ class BusinessListing extends Component {
 
   render() {
     return (
-      <div>
+      <>
         <Link
           to={`/businesses/${this.props.businessId}`}
           className="category-url"
@@ -30,7 +30,7 @@ class BusinessListing extends Component {
             </div>
           </Container>
         </Link>
-      </div>
+      </>
     );
   }
 }

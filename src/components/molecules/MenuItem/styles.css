@@ -52,3 +52,9 @@ small {
 .product-description {
   width: 80%;
 }
+
+@media only screen and (min-width: 1024px) {
+  .product-list-container {
+    width: 45%;
+  }
+}

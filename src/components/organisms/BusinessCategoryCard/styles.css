@@ -32,3 +32,15 @@
   margin-top: 10px;
   margin-bottom: 0;
 }
+
+@media only screen and (min-width: 1024px) {
+  .category-container{
+    width: 25vw;
+    height: 25vw;
+  }
+
+  .card-image {
+    width: 85%;
+    height: 85%;
+  }
+}

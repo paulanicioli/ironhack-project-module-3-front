@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import MenuItem from '../../molecules/MenuItem';
 
+import './style.css'
+
 class ProductCategoryContainer extends Component {
   constructor(props) {
     super(props);
@@ -8,7 +10,7 @@ class ProductCategoryContainer extends Component {
 
   render() {
     return (
-      <div>
+      <div className="product-category-container">
         {this.props.products
           ? this.props.products.map((element) => {
               return (

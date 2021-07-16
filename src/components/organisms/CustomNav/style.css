@@ -85,7 +85,7 @@ nav,
   margin-left: auto;
 }
 
-@media only screen and (min-width: 760px) {
+@media only screen and (min-width: 768px) {
   #general-navbar {
     display: grid;
     grid-template: 1fr / 150px 1fr;

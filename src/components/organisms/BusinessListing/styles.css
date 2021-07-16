@@ -3,7 +3,6 @@
   box-sizing: border-box;
   padding: 2vh 3vw;
   display: flex;
-  direction: row;
   align-items: center;
   padding: 10px;
   margin: 5px 0;
@@ -38,4 +37,14 @@ hr {
   color: var(--custom-gray);
   border: 0 none;
   height: 1px;
+}
+
+@media only screen and (min-width: 768px) {
+  .business-row.container {
+    /* border: 3px solid red; */
+  }
+
+  .business-image {
+    width: 40%;
+  }
 }

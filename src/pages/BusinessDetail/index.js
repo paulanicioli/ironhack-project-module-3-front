@@ -87,7 +87,7 @@ class BusinessDetail extends Component {
   renderProductCategories() {
     return this.state.productCategories.map((element) => {
       return (
-        <div key={element.name}>
+        <div key={element.name} >
           <h1 className="section-title">{element.name}</h1>
           <ProductCategoryContainer
             products={element.products}
