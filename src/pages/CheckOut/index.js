@@ -158,7 +158,7 @@ class CheckOut extends Component {
       >
         {this.state.productsList.length > 0 ? (
           <div className="checkout-container">
-            <h4>Seu pedido em {this.state.productsList[0].business.name}:</h4>
+            <h4 className="section-title">Seu pedido em {this.state.productsList[0].business.name}:</h4>
             <div className="order-all-products">{this.renderAllProducts()}</div>
             <h5 className="total-price">
               Total: {this.formattedPrice(this.state.price)}
@@ -173,7 +173,7 @@ class CheckOut extends Component {
             </div>
           </div>
         ) : (
-          <div className="checkout-container">
+          <div className="checkout-container empty">
             <h3>Você ainda não adicionou items ao seu carrinho!</h3>
             <CustomButton onClick={this.returnToCategories}>
               Retornar ao menu de categorias

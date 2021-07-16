@@ -5,3 +5,10 @@
 .all-orders-container {
   margin-top: 20px;
 }
+
+@media only screen and (min-width: 768px) {
+  .orders-container {
+    max-width: 50%;
+    margin: 5vh auto;
+  }
+}

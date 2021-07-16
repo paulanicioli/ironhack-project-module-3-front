@@ -52,7 +52,7 @@ class ProductCheckoutContainer extends Component {
 
   render() {
     return (
-      <div>
+      <div className="checkout-item-container">
         <div className="checkout-first-row-container">
           <div className="product-info-container">
             <img
